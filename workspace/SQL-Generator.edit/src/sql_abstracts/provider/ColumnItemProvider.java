@@ -46,6 +46,8 @@ public class ColumnItemProvider extends ModelElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addNullablePropertyDescriptor(object);
+			addCommentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,6 +66,50 @@ public class ColumnItemProvider extends ModelElementItemProvider {
 				 getString("_UI_Column_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Column_type_feature", "_UI_Column_type"),
 				 Sql_abstractsPackage.Literals.COLUMN__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nullable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNullablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_nullable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_nullable_feature", "_UI_Column_type"),
+				 Sql_abstractsPackage.Literals.COLUMN__NULLABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Comments feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_comments_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_comments_feature", "_UI_Column_type"),
+				 Sql_abstractsPackage.Literals.COLUMN__COMMENTS,
 				 true,
 				 false,
 				 false,
@@ -111,6 +157,8 @@ public class ColumnItemProvider extends ModelElementItemProvider {
 
 		switch (notification.getFeatureID(Column.class)) {
 			case Sql_abstractsPackage.COLUMN__TYPE:
+			case Sql_abstractsPackage.COLUMN__NULLABLE:
+			case Sql_abstractsPackage.COLUMN__COMMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

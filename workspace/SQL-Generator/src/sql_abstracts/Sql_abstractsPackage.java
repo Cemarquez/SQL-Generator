@@ -114,31 +114,13 @@ public interface Sql_abstractsPackage extends EPackage {
 	int MODEL_ELEMENT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__KIND = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id M</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__ID_M = 2;
-
-	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = 3;
+	int MODEL_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,24 +130,6 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEMA__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__KIND = MODEL_ELEMENT__KIND;
-
-	/**
-	 * The feature id for the '<em><b>Id M</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA__ID_M = MODEL_ELEMENT__ID_M;
 
 	/**
 	 * The feature id for the '<em><b>Lst Tables</b></em>' containment reference list.
@@ -203,24 +167,6 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__KIND = MODEL_ELEMENT__KIND;
-
-	/**
-	 * The feature id for the '<em><b>Id M</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__ID_M = MODEL_ELEMENT__ID_M;
 
 	/**
 	 * The feature id for the '<em><b>Lst Columns</b></em>' containment reference list.
@@ -278,24 +224,6 @@ public interface Sql_abstractsPackage extends EPackage {
 	int COLUMN__NAME = MODEL_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN__KIND = MODEL_ELEMENT__KIND;
-
-	/**
-	 * The feature id for the '<em><b>Id M</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLUMN__ID_M = MODEL_ELEMENT__ID_M;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,13 +233,31 @@ public interface Sql_abstractsPackage extends EPackage {
 	int COLUMN__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__NULLABLE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Comments</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__COMMENTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int COLUMN_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link sql_abstracts.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
@@ -333,24 +279,6 @@ public interface Sql_abstractsPackage extends EPackage {
 	int PRIMARY_KEY__NAME = COLUMN__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_KEY__KIND = COLUMN__KIND;
-
-	/**
-	 * The feature id for the '<em><b>Id M</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMARY_KEY__ID_M = COLUMN__ID_M;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,6 +286,24 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMARY_KEY__TYPE = COLUMN__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY__NULLABLE = COLUMN__NULLABLE;
+
+	/**
+	 * The feature id for the '<em><b>Comments</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY__COMMENTS = COLUMN__COMMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Lst Refer Foreign Keys</b></em>' reference list.
@@ -395,24 +341,6 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOREIGN_KEY__NAME = MODEL_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREIGN_KEY__KIND = MODEL_ELEMENT__KIND;
-
-	/**
-	 * The feature id for the '<em><b>Id M</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOREIGN_KEY__ID_M = MODEL_ELEMENT__ID_M;
 
 	/**
 	 * The feature id for the '<em><b>Refer Primary Key</b></em>' reference.
@@ -497,28 +425,6 @@ public interface Sql_abstractsPackage extends EPackage {
 	EAttribute getModelElement_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link sql_abstracts.ModelElement#getKind <em>Kind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Kind</em>'.
-	 * @see sql_abstracts.ModelElement#getKind()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EAttribute getModelElement_Kind();
-
-	/**
-	 * Returns the meta object for the attribute '{@link sql_abstracts.ModelElement#getIdM <em>Id M</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id M</em>'.
-	 * @see sql_abstracts.ModelElement#getIdM()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EAttribute getModelElement_IdM();
-
-	/**
 	 * Returns the meta object for class '{@link sql_abstracts.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -581,6 +487,28 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColumn_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.Column#isNullable <em>Nullable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nullable</em>'.
+	 * @see sql_abstracts.Column#isNullable()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Nullable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.Column#getComments <em>Comments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comments</em>'.
+	 * @see sql_abstracts.Column#getComments()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Comments();
 
 	/**
 	 * Returns the meta object for class '{@link sql_abstracts.PrimaryKey <em>Primary Key</em>}'.
@@ -701,22 +629,6 @@ public interface Sql_abstractsPackage extends EPackage {
 		EAttribute MODEL_ELEMENT__NAME = eINSTANCE.getModelElement_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL_ELEMENT__KIND = eINSTANCE.getModelElement_Kind();
-
-		/**
-		 * The meta object literal for the '<em><b>Id M</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL_ELEMENT__ID_M = eINSTANCE.getModelElement_IdM();
-
-		/**
 		 * The meta object literal for the '{@link sql_abstracts.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -767,6 +679,22 @@ public interface Sql_abstractsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COLUMN__TYPE = eINSTANCE.getColumn_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Nullable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__NULLABLE = eINSTANCE.getColumn_Nullable();
+
+		/**
+		 * The meta object literal for the '<em><b>Comments</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__COMMENTS = eINSTANCE.getColumn_Comments();
 
 		/**
 		 * The meta object literal for the '{@link sql_abstracts.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.

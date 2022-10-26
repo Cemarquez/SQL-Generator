@@ -2,12 +2,19 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.awt.Button"/>
     <fullyQualifiedTypeName name="generator.view.views.GeneratorView"/>
-    <fullyQualifiedTypeName name="sql_abstracts.Sql_abstractsFactory"/>
-    <fullyQualifiedTypeName name="sql_abstracts.ModelFactory"/>
-    <fullyQualifiedTypeName name="sql_abstracts.Schema"/>
-    <fullyQualifiedTypeName name="sql_abstracts.Table"/>
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
-    <fullyQualifiedTypeName name="sql_abstracts.Column"/>
     <fullyQualifiedTypeName name="generator.model.ModelFactoryModel"/>
     <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="sql_abstracts.ModelFactory"/>
+    <fullyQualifiedTypeName name="abstracts.MClass"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Schema"/>
+    <fullyQualifiedTypeName name="generator.model.TransformationM2M_SQL"/>
+    <fullyQualifiedTypeName name="abstracts.MAttribute"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Column"/>
+    <fullyQualifiedTypeName name="sql_abstracts.PrimaryKey"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Table"/>
+    <fullyQualifiedTypeName name="abstracts.MAssociation"/>
+    <fullyQualifiedTypeName name="abstracts.MContainment"/>
+    <fullyQualifiedTypeName name="sql_abstracts.ForeignKey"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Sql_abstractsFactory"/>
 </qualifiedTypeNameHistroy>

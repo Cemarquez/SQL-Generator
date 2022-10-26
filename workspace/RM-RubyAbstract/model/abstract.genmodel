@@ -60,6 +60,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/comments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/constant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/removeToInit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/primaryKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/type"/>
     </genClasses>
     <genClasses ecoreClass="abstract.ecore#//MFunction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MFunction/name"/>

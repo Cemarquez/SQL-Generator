@@ -438,6 +438,36 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMAttribute_PrimaryKey() {
+		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMAttribute_Nullable() {
+		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMAttribute_Type() {
+		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMAssociation() {
 		return mAssociationEClass;
 	}
@@ -723,6 +753,9 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 		createEAttribute(mAttributeEClass, MATTRIBUTE__COMMENTS);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__CONSTANT);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__REMOVE_TO_INIT);
+		createEAttribute(mAttributeEClass, MATTRIBUTE__PRIMARY_KEY);
+		createEAttribute(mAttributeEClass, MATTRIBUTE__NULLABLE);
+		createEAttribute(mAttributeEClass, MATTRIBUTE__TYPE);
 
 		mAssociationEClass = createEClass(MASSOCIATION);
 		createEReference(mAssociationEClass, MASSOCIATION__SOURCE);
@@ -814,6 +847,9 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 		initEAttribute(getMAttribute_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_Constant(), ecorePackage.getEBoolean(), "constant", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_RemoveToInit(), ecorePackage.getEBoolean(), "removeToInit", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_PrimaryKey(), ecorePackage.getEBoolean(), "primaryKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mAssociationEClass, MAssociation.class, "MAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMAssociation_Source(), this.getMClass(), null, "source", null, 0, 1, MAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

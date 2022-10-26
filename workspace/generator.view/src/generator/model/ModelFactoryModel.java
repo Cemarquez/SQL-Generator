@@ -54,7 +54,7 @@ public class ModelFactoryModel {
 		sql_abstracts.ModelFactory modelFactory = null;
 
 		org.eclipse.emf.ecore.resource.ResourceSet resourceSet = new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl();
-		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI("platform:/resource/model/src/model/model.sql_abstracts");
+		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI("platform:/resource/model/src/model/model2.sql_abstracts");
 		org.eclipse.emf.ecore.resource.Resource resource = resourceSet.createResource(uri);
 
 		try {
@@ -109,7 +109,7 @@ public class ModelFactoryModel {
 	
 	
 	public void salvarAbstractaSQL() {
-		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI("platform:/resource/model/src/model/model.sql_abstracts");
+		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI("platform:/resource/model/src/model/model2.sql_abstracts");
 		org.eclipse.emf.ecore.resource.ResourceSet resourceSet= new org.eclipse.emf.ecore.resource.impl.ResourceSetImpl();
 		org.eclipse.emf.ecore.resource.Resource resource = resourceSet.createResource(uri);
 		resource.getContents().add(modelFactorySQL);
@@ -136,6 +136,9 @@ public class ModelFactoryModel {
 	public void generarModelToModelSQL() {
 		modelFactoryAbstracta = cargarAbstracta();
 		modelFactorySQL = cargarSQL();
+		TransformationM2M_SQL m2m = new TransformationM2M_SQL(modelFactoryAbstracta, modelFactorySQL);
+		m2m.transformarM2MSQL();
+		salvarAbstractaSQL();
 		
 	}
 

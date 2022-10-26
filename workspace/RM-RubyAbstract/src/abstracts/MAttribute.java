@@ -18,6 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link abstracts.MAttribute#getComments <em>Comments</em>}</li>
  *   <li>{@link abstracts.MAttribute#isConstant <em>Constant</em>}</li>
  *   <li>{@link abstracts.MAttribute#isRemoveToInit <em>Remove To Init</em>}</li>
+ *   <li>{@link abstracts.MAttribute#isPrimaryKey <em>Primary Key</em>}</li>
+ *   <li>{@link abstracts.MAttribute#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link abstracts.MAttribute#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see abstracts.AbstractsPackage#getMAttribute()
@@ -134,5 +137,71 @@ public interface MAttribute extends EObject {
 	 * @generated
 	 */
 	void setRemoveToInit(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Primary Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Primary Key</em>' attribute.
+	 * @see #setPrimaryKey(boolean)
+	 * @see abstracts.AbstractsPackage#getMAttribute_PrimaryKey()
+	 * @model
+	 * @generated
+	 */
+	boolean isPrimaryKey();
+
+	/**
+	 * Sets the value of the '{@link abstracts.MAttribute#isPrimaryKey <em>Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primary Key</em>' attribute.
+	 * @see #isPrimaryKey()
+	 * @generated
+	 */
+	void setPrimaryKey(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nullable</em>' attribute.
+	 * @see #setNullable(boolean)
+	 * @see abstracts.AbstractsPackage#getMAttribute_Nullable()
+	 * @model
+	 * @generated
+	 */
+	boolean isNullable();
+
+	/**
+	 * Sets the value of the '{@link abstracts.MAttribute#isNullable <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nullable</em>' attribute.
+	 * @see #isNullable()
+	 * @generated
+	 */
+	void setNullable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see #setType(String)
+	 * @see abstracts.AbstractsPackage#getMAttribute_Type()
+	 * @model
+	 * @generated
+	 */
+	String getType();
+
+	/**
+	 * Sets the value of the '{@link abstracts.MAttribute#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(String value);
 
 } // MAttribute

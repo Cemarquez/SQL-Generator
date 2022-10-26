@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<abstract:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:abstract="abstract" nombre="Colegio" lstAllClass="//@lstPackages.0/@lstMClass.0 //@lstPackages.0/@lstMClass.1 //@lstPackages.0/@lstMClass.2" lstAllPackage="//@lstPackages.0">
+  <lstPackages name="Colegio" path="">
+    <lstMClass name="Profesor" path="Colegio"/>
+    <lstMClass name="Curso" path="Colegio"/>
+    <lstMClass name="Depto" path="Colegio"/>
+  </lstPackages>
+</abstract:ModelFactory>

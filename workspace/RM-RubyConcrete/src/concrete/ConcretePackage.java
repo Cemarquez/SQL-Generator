@@ -350,13 +350,40 @@ public interface ConcretePackage extends EPackage {
 	int MATTRIBUTE__REMOVE_TO_INIT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Primary Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__PRIMARY_KEY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__NULLABLE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__TYPE = 7;
+
+	/**
 	 * The number of structural features of the '<em>MAttribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATTRIBUTE_FEATURE_COUNT = 5;
+	int MATTRIBUTE_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link concrete.impl.MAssociationImpl <em>MAssociation</em>}' class.
@@ -910,6 +937,39 @@ public interface ConcretePackage extends EPackage {
 	EAttribute getMAttribute_RemoveToInit();
 
 	/**
+	 * Returns the meta object for the attribute '{@link concrete.MAttribute#isPrimaryKey <em>Primary Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Primary Key</em>'.
+	 * @see concrete.MAttribute#isPrimaryKey()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_PrimaryKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link concrete.MAttribute#isNullable <em>Nullable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nullable</em>'.
+	 * @see concrete.MAttribute#isNullable()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_Nullable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link concrete.MAttribute#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see concrete.MAttribute#getType()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_Type();
+
+	/**
 	 * Returns the meta object for class '{@link concrete.MAssociation <em>MAssociation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1413,6 +1473,30 @@ public interface ConcretePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MATTRIBUTE__REMOVE_TO_INIT = eINSTANCE.getMAttribute_RemoveToInit();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__PRIMARY_KEY = eINSTANCE.getMAttribute_PrimaryKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Nullable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__NULLABLE = eINSTANCE.getMAttribute_Nullable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__TYPE = eINSTANCE.getMAttribute_Type();
 
 		/**
 		 * The meta object literal for the '{@link concrete.impl.MAssociationImpl <em>MAssociation</em>}' class.

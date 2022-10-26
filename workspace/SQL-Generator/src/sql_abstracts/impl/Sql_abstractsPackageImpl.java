@@ -202,26 +202,6 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	 * @generated
 	 */
 	@Override
-	public EAttribute getModelElement_Kind() {
-		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getModelElement_IdM() {
-		return (EAttribute)modelElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -274,6 +254,26 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	@Override
 	public EAttribute getColumn_Type() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getColumn_Nullable() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getColumn_Comments() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -353,8 +353,6 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
-		createEAttribute(modelElementEClass, MODEL_ELEMENT__KIND);
-		createEAttribute(modelElementEClass, MODEL_ELEMENT__ID_M);
 
 		tableEClass = createEClass(TABLE);
 		createEReference(tableEClass, TABLE__LST_COLUMNS);
@@ -363,6 +361,8 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__TYPE);
+		createEAttribute(columnEClass, COLUMN__NULLABLE);
+		createEAttribute(columnEClass, COLUMN__COMMENTS);
 
 		primaryKeyEClass = createEClass(PRIMARY_KEY);
 		createEReference(primaryKeyEClass, PRIMARY_KEY__LST_REFER_FOREIGN_KEYS);
@@ -414,8 +414,6 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModelElement_Kind(), ecorePackage.getEString(), "kind", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModelElement_IdM(), ecorePackage.getEString(), "idM", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_LstColumns(), this.getColumn(), null, "lstColumns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -424,6 +422,8 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColumn_Type(), ecorePackage.getEString(), "type", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primaryKeyEClass, PrimaryKey.class, "PrimaryKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimaryKey_LstReferForeignKeys(), this.getForeignKey(), null, "lstReferForeignKeys", null, 0, -1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

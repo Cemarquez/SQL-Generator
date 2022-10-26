@@ -65,6 +65,9 @@ public class MAttributeItemProvider
 			addCommentsPropertyDescriptor(object);
 			addConstantPropertyDescriptor(object);
 			addRemoveToInitPropertyDescriptor(object);
+			addPrimaryKeyPropertyDescriptor(object);
+			addNullablePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +183,72 @@ public class MAttributeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Primary Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrimaryKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MAttribute_primaryKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MAttribute_primaryKey_feature", "_UI_MAttribute_type"),
+				 ConcretePackage.Literals.MATTRIBUTE__PRIMARY_KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nullable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNullablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MAttribute_nullable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MAttribute_nullable_feature", "_UI_MAttribute_type"),
+				 ConcretePackage.Literals.MATTRIBUTE__NULLABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MAttribute_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MAttribute_type_feature", "_UI_MAttribute_type"),
+				 ConcretePackage.Literals.MATTRIBUTE__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns MAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +291,9 @@ public class MAttributeItemProvider
 			case ConcretePackage.MATTRIBUTE__COMMENTS:
 			case ConcretePackage.MATTRIBUTE__CONSTANT:
 			case ConcretePackage.MATTRIBUTE__REMOVE_TO_INIT:
+			case ConcretePackage.MATTRIBUTE__PRIMARY_KEY:
+			case ConcretePackage.MATTRIBUTE__NULLABLE:
+			case ConcretePackage.MATTRIBUTE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

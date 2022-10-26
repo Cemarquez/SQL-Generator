@@ -61,8 +61,6 @@ public class ModelElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addKindPropertyDescriptor(object);
-			addIdMPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,50 +79,6 @@ public class ModelElementItemProvider
 				 getString("_UI_ModelElement_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_name_feature", "_UI_ModelElement_type"),
 				 Sql_abstractsPackage.Literals.MODEL_ELEMENT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Kind feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addKindPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ModelElement_kind_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_kind_feature", "_UI_ModelElement_type"),
-				 Sql_abstractsPackage.Literals.MODEL_ELEMENT__KIND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Id M feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdMPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ModelElement_idM_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_idM_feature", "_UI_ModelElement_type"),
-				 Sql_abstractsPackage.Literals.MODEL_ELEMENT__ID_M,
 				 true,
 				 false,
 				 false,
@@ -172,8 +126,6 @@ public class ModelElementItemProvider
 
 		switch (notification.getFeatureID(ModelElement.class)) {
 			case Sql_abstractsPackage.MODEL_ELEMENT__NAME:
-			case Sql_abstractsPackage.MODEL_ELEMENT__KIND:
-			case Sql_abstractsPackage.MODEL_ELEMENT__ID_M:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

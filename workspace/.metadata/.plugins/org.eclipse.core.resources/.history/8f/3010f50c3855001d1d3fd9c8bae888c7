@@ -1,0 +1,21 @@
+package generator.model;
+
+public class TransformationM2M_SQL {
+
+	
+	private abstracts.ModelFactory modelFactoryAbstracta; 
+	private sql_abstracts.ModelFactory modelFactorySQL;
+	
+	public TransformationM2M_SQL(abstracts.ModelFactory modelFactoryAbstracta, sql_abstracts.ModelFactory modelFactorySQL) {
+		this.modelFactoryAbstracta = modelFactoryAbstracta;
+		this.modelFactorySQL = modelFactorySQL;
+	}
+
+	public String transformarM2MSQL() {
+		String mensaje ="La transformación M2M SQL se ha realizado";
+		
+		return mensaje;
+	}
+	
+	
+}

@@ -37,6 +37,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/comments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/constant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/removeToInit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/primaryKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/type"/>
     </genClasses>
     <genClasses ecoreClass="concrete.ecore#//MAssociation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference concrete.ecore#//MAssociation/source"/>

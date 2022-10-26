@@ -28,6 +28,8 @@ import sql_abstracts.Sql_abstractsPackage;
  * </p>
  * <ul>
  *   <li>{@link sql_abstracts.impl.ColumnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link sql_abstracts.impl.ColumnImpl#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link sql_abstracts.impl.ColumnImpl#getComments <em>Comments</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +54,46 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @ordered
 	 */
 	protected String type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNullable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NULLABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNullable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean nullable = NULLABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComments() <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComments()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENTS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComments() <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComments()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comments = COMMENTS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,10 +143,60 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @generated
 	 */
 	@Override
+	public boolean isNullable() {
+		return nullable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNullable(boolean newNullable) {
+		boolean oldNullable = nullable;
+		nullable = newNullable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.COLUMN__NULLABLE, oldNullable, nullable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getComments() {
+		return comments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComments(String newComments) {
+		String oldComments = comments;
+		comments = newComments;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.COLUMN__COMMENTS, oldComments, comments));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case Sql_abstractsPackage.COLUMN__TYPE:
 				return getType();
+			case Sql_abstractsPackage.COLUMN__NULLABLE:
+				return isNullable();
+			case Sql_abstractsPackage.COLUMN__COMMENTS:
+				return getComments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -121,6 +213,12 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 			case Sql_abstractsPackage.COLUMN__TYPE:
 				setType((String)newValue);
 				return;
+			case Sql_abstractsPackage.COLUMN__NULLABLE:
+				setNullable((Boolean)newValue);
+				return;
+			case Sql_abstractsPackage.COLUMN__COMMENTS:
+				setComments((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -136,6 +234,12 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 			case Sql_abstractsPackage.COLUMN__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case Sql_abstractsPackage.COLUMN__NULLABLE:
+				setNullable(NULLABLE_EDEFAULT);
+				return;
+			case Sql_abstractsPackage.COLUMN__COMMENTS:
+				setComments(COMMENTS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -150,6 +254,10 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 		switch (featureID) {
 			case Sql_abstractsPackage.COLUMN__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case Sql_abstractsPackage.COLUMN__NULLABLE:
+				return nullable != NULLABLE_EDEFAULT;
+			case Sql_abstractsPackage.COLUMN__COMMENTS:
+				return COMMENTS_EDEFAULT == null ? comments != null : !COMMENTS_EDEFAULT.equals(comments);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -166,6 +274,10 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", nullable: ");
+		result.append(nullable);
+		result.append(", comments: ");
+		result.append(comments);
 		result.append(')');
 		return result.toString();
 	}

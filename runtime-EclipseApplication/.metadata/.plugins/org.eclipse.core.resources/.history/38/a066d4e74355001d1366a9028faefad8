@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concrete:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:concrete="concrete">
+  <lstMDiagrams name="Colegio">
+    <lstMPackage name="Colegio"/>
+    <lstMClass name="Profesor" path="Colegio">
+      <lstMAttribute name="Prof_ID" primaryKey="true" type="Number"/>
+      <lstMAttribute name="Nombre" nullable="true" type="VARCHAR"/>
+    </lstMClass>
+    <lstMClass name="Curso" path="Colegio"/>
+    <lstMClass name="Depto" path="Colegio"/>
+  </lstMDiagrams>
+</concrete:ModelFactory>

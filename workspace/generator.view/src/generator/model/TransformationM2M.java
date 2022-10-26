@@ -28,8 +28,8 @@ public class TransformationM2M {
 	 */
 	public String transformarM2M() {
 		String mensaje = "Se ha realziado la transformación M2M";
-		
 		for(concrete.MClassDiagram dConcreta : modelFactoryConcreta.getLstMDiagrams()) {
+			modelFactoryAbstracta.setNombre(dConcreta.getName());
 			//crear los paquetes
 			for(concrete.MPackage p : dConcreta.getLstMPackage()) {
 				crearPaquete(p);
@@ -183,6 +183,9 @@ public class TransformationM2M {
 			newAttribute.setDefaultValue(a.getDefaultValue());
 			newAttribute.setName(a.getName());
 			newAttribute.setRemoveToInit(a.isRemoveToInit());
+			newAttribute.setType(a.getType());
+			newAttribute.setPrimaryKey(a.isPrimaryKey());
+			newAttribute.setNullable(a.isNullable());
 			atributos.add(newAttribute);
 		}
 		

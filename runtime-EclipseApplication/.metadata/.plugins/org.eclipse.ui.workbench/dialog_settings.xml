@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="concrete.presentation.ConcreteModelWizardID"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="sql_abstracts.presentation.Sql_abstractsModelWizardID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.emf.ecore.Wizard.category.ID"/>
 		</list>

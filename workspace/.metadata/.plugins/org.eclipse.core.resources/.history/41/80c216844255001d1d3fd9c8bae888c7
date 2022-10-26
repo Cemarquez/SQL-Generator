@@ -1,0 +1,90 @@
+@namespace(uri="concrete", prefix="concrete")
+@gmf
+package concrete;
+
+
+class ModelFactory{
+	attr String nombre;
+	attr String ruta;
+	val MClassDiagram[*] lstMDiagrams;
+}
+
+@gmf.diagram
+class MClassDiagram{
+	attr String name;
+	attr String description;
+	val MPackage[*] lstMPackage;
+	val MClass[*] lstMClass;
+	val MAssociation[*] lstMAssoctiation;
+	val MInheritance[*] lstMInheritance;
+	val MContainment[*] lstMContainment;
+}
+
+@gmf.node(label = "name", color ="255,240,237" )
+class MPackage{
+	attr String name;
+	attr String path;
+}
+
+@gmf.node(label="name",figure="rounded", label.layout="center", color = "255,216,208", tool.description="Añade una clase al diagrama")
+class MClass{
+	attr String name;
+	attr String accessModifier;
+	attr String comments;
+	attr String path;
+	
+	@gmf.compartment(layout="list", collapsible="false")
+	val MAttribute[*] lstMAttribute;
+	@gmf.compartment(layout="list", collapsible="false")
+	val MFunction[*] lstMFunction; 
+}
+
+@gmf.node(label="name", figure="rectangle",label.icon="false", label.pattern="{0}", color = "255,216,208",tool.description="Añade un atributo a una clase")
+class MAttribute{
+	attr String name;
+	attr String defaultValue;
+	attr String comments;
+	attr boolean constant;
+	attr boolean removeToInit;
+	attr boolean primaryKey;
+	attr boolean nullable;
+	
+}
+@gmf.link(source = "source", target = "target", style = "solid", width = "1", color="255,0,0")
+class MAssociation{
+	ref MClass source;
+	ref MClass target;
+	attr String multiplicitySource;
+	attr String multiplicityTarget;
+	attr String sourceRole;
+	attr String targetRole;
+	attr boolean bidirectional;
+}
+
+@gmf.link(source = "source", target = "target", style = "solid", width = "1", target.decoration="closedarrow", color="255,0,0")
+class MInheritance{
+	ref MClass source;
+	ref MClass target;
+	
+}
+
+@gmf.link(source = "source", target = "target", style = "solid", width = "1", target.decoration="filledrhomb", color="255,0,0")
+class MContainment{
+	ref MClass source;
+	ref MClass target;
+	attr String multiplicityTarget;
+	attr String sourceRole;
+	attr String targetRole;
+}
+
+@gmf.node(label="name,parameters", figure="rectangle",label.icon="false", label.pattern="{0}({1})", color = "255,216,208", tool.description="Añade una función a una clase")
+class MFunction{
+	attr String name;
+	attr String accessModifier; 
+	attr String semantics;
+	attr String comments;
+	attr String parameters;
+	
+}
+
+

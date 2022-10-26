@@ -12,8 +12,6 @@ class Schema extends ModelElement{
 
 class ModelElement{
 	attr String name;
-	attr String kind;
-	attr String idM;
 }
 
 class Table extends ModelElement{
@@ -24,6 +22,8 @@ class Table extends ModelElement{
 
 class Column extends ModelElement{
     attr String type;
+    attr boolean nullable;
+    attr String comments;
 }
 
 class PrimaryKey extends Column{
@@ -33,6 +33,8 @@ class PrimaryKey extends Column{
 class ForeignKey extends ModelElement{
     ref PrimaryKey referPrimaryKey;
 }
+
+
 
 
 

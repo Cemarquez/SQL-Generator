@@ -560,13 +560,40 @@ public interface AbstractsPackage extends EPackage {
 	int MATTRIBUTE__REMOVE_TO_INIT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Primary Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__PRIMARY_KEY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__NULLABLE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__TYPE = 7;
+
+	/**
 	 * The number of structural features of the '<em>MAttribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATTRIBUTE_FEATURE_COUNT = 5;
+	int MATTRIBUTE_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link abstracts.impl.MFunctionImpl <em>MFunction</em>}' class.
@@ -1154,6 +1181,39 @@ public interface AbstractsPackage extends EPackage {
 	EAttribute getMAttribute_RemoveToInit();
 
 	/**
+	 * Returns the meta object for the attribute '{@link abstracts.MAttribute#isPrimaryKey <em>Primary Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Primary Key</em>'.
+	 * @see abstracts.MAttribute#isPrimaryKey()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_PrimaryKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link abstracts.MAttribute#isNullable <em>Nullable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nullable</em>'.
+	 * @see abstracts.MAttribute#isNullable()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_Nullable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link abstracts.MAttribute#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see abstracts.MAttribute#getType()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_Type();
+
+	/**
 	 * Returns the meta object for class '{@link abstracts.MFunction <em>MFunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1639,6 +1699,30 @@ public interface AbstractsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MATTRIBUTE__REMOVE_TO_INIT = eINSTANCE.getMAttribute_RemoveToInit();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__PRIMARY_KEY = eINSTANCE.getMAttribute_PrimaryKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Nullable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__NULLABLE = eINSTANCE.getMAttribute_Nullable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__TYPE = eINSTANCE.getMAttribute_Type();
 
 		/**
 		 * The meta object literal for the '{@link abstracts.impl.MFunctionImpl <em>MFunction</em>}' class.

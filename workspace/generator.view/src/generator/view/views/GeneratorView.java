@@ -58,7 +58,8 @@ public class GeneratorView extends ViewPart {
 		btnGenerateM2M.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
+				ModelFactoryModel mfm = new ModelFactoryModel();
+				mfm.generarModelToModel();
 			}
 		});
 		btnGenerateM2M.setBounds(116, 23, 334, 38);
@@ -72,7 +73,8 @@ public class GeneratorView extends ViewPart {
 		btnGenerateM2T.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
+				ModelFactoryModel mfm = new ModelFactoryModel();
+				mfm.generarModelToText();
 			}
 		});
 		btnGenerateM2T.setText("Generate M2T");
@@ -102,7 +104,8 @@ public class GeneratorView extends ViewPart {
 		btnM2MSQL.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
+				ModelFactoryModel mfm = new ModelFactoryModel();
+				mfm.generarModelToModelSQL();
 			}
 		});
 		btnM2MSQL.setText("Generar M2M SQL");

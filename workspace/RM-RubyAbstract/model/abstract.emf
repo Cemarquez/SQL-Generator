@@ -64,6 +64,9 @@ class MAttribute{
 	attr String comments;
 	attr boolean constant;
 	attr boolean removeToInit;
+	attr boolean primaryKey;
+	attr boolean nullable;
+	attr String type;
 }
 
 class MFunction{

@@ -25,6 +25,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link abstracts.impl.MAttributeImpl#getComments <em>Comments</em>}</li>
  *   <li>{@link abstracts.impl.MAttributeImpl#isConstant <em>Constant</em>}</li>
  *   <li>{@link abstracts.impl.MAttributeImpl#isRemoveToInit <em>Remove To Init</em>}</li>
+ *   <li>{@link abstracts.impl.MAttributeImpl#isPrimaryKey <em>Primary Key</em>}</li>
+ *   <li>{@link abstracts.impl.MAttributeImpl#isNullable <em>Nullable</em>}</li>
+ *   <li>{@link abstracts.impl.MAttributeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -129,6 +132,66 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @ordered
 	 */
 	protected boolean removeToInit = REMOVE_TO_INIT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPrimaryKey() <em>Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPrimaryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PRIMARY_KEY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPrimaryKey() <em>Primary Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPrimaryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean primaryKey = PRIMARY_KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNullable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NULLABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNullable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean nullable = NULLABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,6 +333,75 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @generated
 	 */
 	@Override
+	public boolean isPrimaryKey() {
+		return primaryKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPrimaryKey(boolean newPrimaryKey) {
+		boolean oldPrimaryKey = primaryKey;
+		primaryKey = newPrimaryKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsPackage.MATTRIBUTE__PRIMARY_KEY, oldPrimaryKey, primaryKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isNullable() {
+		return nullable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNullable(boolean newNullable) {
+		boolean oldNullable = nullable;
+		nullable = newNullable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsPackage.MATTRIBUTE__NULLABLE, oldNullable, nullable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsPackage.MATTRIBUTE__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AbstractsPackage.MATTRIBUTE__NAME:
@@ -282,6 +414,12 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return isConstant();
 			case AbstractsPackage.MATTRIBUTE__REMOVE_TO_INIT:
 				return isRemoveToInit();
+			case AbstractsPackage.MATTRIBUTE__PRIMARY_KEY:
+				return isPrimaryKey();
+			case AbstractsPackage.MATTRIBUTE__NULLABLE:
+				return isNullable();
+			case AbstractsPackage.MATTRIBUTE__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +446,15 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return;
 			case AbstractsPackage.MATTRIBUTE__REMOVE_TO_INIT:
 				setRemoveToInit((Boolean)newValue);
+				return;
+			case AbstractsPackage.MATTRIBUTE__PRIMARY_KEY:
+				setPrimaryKey((Boolean)newValue);
+				return;
+			case AbstractsPackage.MATTRIBUTE__NULLABLE:
+				setNullable((Boolean)newValue);
+				return;
+			case AbstractsPackage.MATTRIBUTE__TYPE:
+				setType((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -336,6 +483,15 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 			case AbstractsPackage.MATTRIBUTE__REMOVE_TO_INIT:
 				setRemoveToInit(REMOVE_TO_INIT_EDEFAULT);
 				return;
+			case AbstractsPackage.MATTRIBUTE__PRIMARY_KEY:
+				setPrimaryKey(PRIMARY_KEY_EDEFAULT);
+				return;
+			case AbstractsPackage.MATTRIBUTE__NULLABLE:
+				setNullable(NULLABLE_EDEFAULT);
+				return;
+			case AbstractsPackage.MATTRIBUTE__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -358,6 +514,12 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return constant != CONSTANT_EDEFAULT;
 			case AbstractsPackage.MATTRIBUTE__REMOVE_TO_INIT:
 				return removeToInit != REMOVE_TO_INIT_EDEFAULT;
+			case AbstractsPackage.MATTRIBUTE__PRIMARY_KEY:
+				return primaryKey != PRIMARY_KEY_EDEFAULT;
+			case AbstractsPackage.MATTRIBUTE__NULLABLE:
+				return nullable != NULLABLE_EDEFAULT;
+			case AbstractsPackage.MATTRIBUTE__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -382,6 +544,12 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 		result.append(constant);
 		result.append(", removeToInit: ");
 		result.append(removeToInit);
+		result.append(", primaryKey: ");
+		result.append(primaryKey);
+		result.append(", nullable: ");
+		result.append(nullable);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}
