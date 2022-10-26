@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: View
+Bundle-SymbolicName: generator.view;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ SQL-Generator;bundle-version="0.1.0",
+ RM-RubyAbstract;bundle-version="0.1.0",
+ RM-RubyConcrete;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Import-Package: javax.inject
+Automatic-Module-Name: generator.view

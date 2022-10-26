@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="concrete">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolygonDecoration" name="ClosedArrow">
+      <backgroundColor xsi:type="gmfgraph:ConstantColor"/>
+      <template/>
+      <template x="-2" y="2"/>
+      <template x="-2" y="-2"/>
+      <template/>
+    </figures>
+    <figures xsi:type="gmfgraph:PolygonDecoration" name="FilledRhomb">
+      <template x="-1" y="1"/>
+      <template/>
+      <template x="-1" y="-1"/>
+      <template x="-2"/>
+      <template x="-1" y="1"/>
+    </figures>
+    <descriptors name="MPackageFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MPackageFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="240" blue="237"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="MPackageLabelFigure" text="MPackage"/>
+      </actualFigure>
+      <accessors accessor="getFigureMPackageLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MClassFigure">
+      <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="MClassFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="216" blue="208"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="MClassLabelFigure" text="MClass">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="MClassLstMAttributeCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="MClassLstMFunctionCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureMClassLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors accessor="getMClassLstMAttributeCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors accessor="getMClassLstMFunctionCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors name="MAttributeFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="MAttributeFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="216" blue="208"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="MAttributeLabelFigure" text="MAttribute"/>
+      </actualFigure>
+      <accessors accessor="getFigureMAttributeLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MFunctionFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="MFunctionFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255" green="216" blue="208"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="MFunctionLabelFigure" text="MFunction"/>
+      </actualFigure>
+      <accessors accessor="getFigureMFunctionLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="MAssociationFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="MAssociationFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="MInheritanceFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="MInheritanceFigure" targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="MContainmentFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="MContainmentFigure" targetDecoration="//@figures.0/@figures.1">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="255"/>
+      </actualFigure>
+    </descriptors>
+  </figures>
+  <nodes name="MPackage" figure="MPackageFigure"/>
+  <nodes name="MClass" figure="MClassFigure"/>
+  <nodes name="MAttribute" figure="MAttributeFigure"/>
+  <nodes name="MFunction" figure="MFunctionFigure"/>
+  <connections name="MAssociation" figure="MAssociationFigure"/>
+  <connections name="MInheritance" figure="MInheritanceFigure"/>
+  <connections name="MContainment" figure="MContainmentFigure"/>
+  <compartments name="MClassLstMAttributeCompartment" figure="MClassFigure" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments name="MClassLstMFunctionCompartment" figure="MClassFigure" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <labels name="MPackageLabel" figure="MPackageFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="MClassLabel" figure="MClassFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="MAttributeLabel" figure="MAttributeFigure" elementIcon="false" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="MFunctionLabel" figure="MFunctionFigure" elementIcon="false" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+</gmfgraph:Canvas>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/RM-RubyAbstract/src" modelPluginID="RM-RubyAbstract"
+    modelName="Abstracts" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>abstract.emf</foreignModel>
+  <genPackages prefix="Abstracts" disposableProviderFactory="true" ecorePackage="abstract.ecore#/">
+    <genClasses ecoreClass="abstract.ecore#//ModelFactory">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//ModelFactory/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//ModelFactory/ruta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//ModelFactory/lstPackages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//ModelFactory/lstAllClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//ModelFactory/lstAllPackage"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MPackage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MPackage/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MPackage/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MPackage/lstMClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MPackage/lstMPackage"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MClassDiagram">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MClassDiagram/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClassDiagram/lstMPackage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClassDiagram/lstMClass"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MClass/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MClass/accessModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MClass/comments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MClass/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClass/lstMAssoctiation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClass/lstMInheritance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClass/lstMContainment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClass/lstAttributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstract.ecore#//MClass/lstFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//MAssociation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//MAssociation/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAssociation/relationshipType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAssociation/multiplicitySource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAssociation/multiplicityTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAssociation/sourceRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAssociation/targetRole"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MInheritance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//MInheritance/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//MInheritance/target"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MContainment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//MContainment/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstract.ecore#//MContainment/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MContainment/multiplicityTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MContainment/sourceRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MContainment/targetRole"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/comments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/constant"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/removeToInit"/>
+    </genClasses>
+    <genClasses ecoreClass="abstract.ecore#//MFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MFunction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MFunction/accessModifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MFunction/semantics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MFunction/comments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MFunction/parameters"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

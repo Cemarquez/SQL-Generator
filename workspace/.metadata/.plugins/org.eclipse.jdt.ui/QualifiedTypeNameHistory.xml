@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.Button"/>
+    <fullyQualifiedTypeName name="generator.view.views.GeneratorView"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Sql_abstractsFactory"/>
+    <fullyQualifiedTypeName name="sql_abstracts.ModelFactory"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Schema"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Table"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Column"/>
+    <fullyQualifiedTypeName name="generator.model.ModelFactoryModel"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+</qualifiedTypeNameHistroy>

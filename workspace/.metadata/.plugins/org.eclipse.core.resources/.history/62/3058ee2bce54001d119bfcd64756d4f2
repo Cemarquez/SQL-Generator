@@ -1,0 +1,84 @@
+/*
+ * 
+ */
+package concrete.diagram.edit.parts;
+
+/**
+ * @generated
+ */
+public class ConcreteEditPartFactory implements org.eclipse.gef.EditPartFactory {
+
+		/**
+ * @generated
+ */
+	public org.eclipse.gef.EditPart createEditPart(org.eclipse.gef.EditPart context, Object model) {
+		if (model instanceof org.eclipse.gmf.runtime.notation.View) {
+			org.eclipse.gmf.runtime.notation.View view = (org.eclipse.gmf.runtime.notation.View) model;
+			switch (concrete.diagram.part.ConcreteVisualIDRegistry.getVisualID(view)) {
+				
+	case concrete.diagram.edit.parts.MClassDiagramEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MClassDiagramEditPart(view);
+									
+	case concrete.diagram.edit.parts.MPackageEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MPackageEditPart(view);
+					
+	case concrete.diagram.edit.parts.MPackageNameEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MPackageNameEditPart(view);
+									
+	case concrete.diagram.edit.parts.MClassEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MClassEditPart(view);
+					
+	case concrete.diagram.edit.parts.MClassNameEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MClassNameEditPart(view);
+									
+	case concrete.diagram.edit.parts.MAttributeEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MAttributeEditPart(view);
+					
+	case concrete.diagram.edit.parts.MAttributeNameEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MAttributeNameEditPart(view);
+									
+	case concrete.diagram.edit.parts.MFunctionEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MFunctionEditPart(view);
+					
+	case concrete.diagram.edit.parts.MFunctionNameParametersEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MFunctionNameParametersEditPart(view);
+								
+	case concrete.diagram.edit.parts.MClassMClassLstMAttributeCompartmentEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MClassMClassLstMAttributeCompartmentEditPart(view);
+
+	case concrete.diagram.edit.parts.MClassMClassLstMFunctionCompartmentEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MClassMClassLstMFunctionCompartmentEditPart(view);
+									
+	case concrete.diagram.edit.parts.MAssociationEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MAssociationEditPart(view);
+					
+									
+	case concrete.diagram.edit.parts.MInheritanceEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MInheritanceEditPart(view);
+					
+									
+	case concrete.diagram.edit.parts.MContainmentEditPart.VISUAL_ID:
+		return new concrete.diagram.edit.parts.MContainmentEditPart(view);
+					
+							}
+		}
+		return createUnrecognizedEditPart(context, model);
+	}
+	
+		/**
+ * @generated
+ */
+	 private org.eclipse.gef.EditPart createUnrecognizedEditPart(org.eclipse.gef.EditPart context, Object model) {
+	 	// Handle creation of unrecognized child node EditParts here
+	 	return null;
+	 }
+	
+		/**
+ * @generated
+ */
+	public static org.eclipse.gef.tools.CellEditorLocator getTextCellEditorLocator(
+			org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart source) {
+		return org.eclipse.gmf.tooling.runtime.directedit.locator.CellEditorLocatorAccess.INSTANCE.getTextCellEditorLocator(source);
+	}
+	
+	}

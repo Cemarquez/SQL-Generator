@@ -1,0 +1,7 @@
+# Tracing options for the RM-RubyConcrete.diagram plug-in
+
+# Common issues
+RM-RubyConcrete.diagram/debug=false
+
+# Visual IDs
+RM-RubyConcrete.diagram/debug/visualID=false

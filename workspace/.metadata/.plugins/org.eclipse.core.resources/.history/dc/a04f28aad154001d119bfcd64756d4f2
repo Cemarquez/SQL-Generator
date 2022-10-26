@@ -1,0 +1,53 @@
+package generator.model;
+
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
+import sql_abstracts.ModelFactory;
+import sql_abstracts.Schema;
+import sql_abstracts.Table;
+
+public class TransformationM2T_SQL {
+	
+	private ModelFactory modelFactory;
+	private JFileChooser chooser = new JFileChooser();
+	
+	public TransformationM2T_SQL(ModelFactory modelFactory) {
+		this.modelFactory = modelFactory;
+	}
+
+	public String transformarM2T() {
+		
+		String mensaje = "Se ha realziado la transformación M2T SQL";
+		
+		for(Schema s : modelFactory.getLstSchema()) {
+			chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			String nombreProyecto = s.getName();
+			int returnVal = chooser.showOpenDialog(null);
+		    if(returnVal == JFileChooser.APPROVE_OPTION) {
+		    	File f =  chooser.getSelectedFile();
+		    	crearSchema(s);
+		    	
+		    }else {
+		    	mensaje = "Debe seleccionar una ubicación para continuar!";
+		    }
+		}
+		
+		
+		return mensaje;
+	}
+
+	private void crearSchema(Schema s) {
+		StringBuilder textCodigo = new StringBuilder();
+		textCodigo.append("CREATE DATABASE " + s.getName() +";\n");
+		textCodigo.append("USE " + s.getName() +";\n");
+		for(Table t : s.getLstTables()) {
+			crearTables();
+		}
+		
+	}
+	
+	
+
+}

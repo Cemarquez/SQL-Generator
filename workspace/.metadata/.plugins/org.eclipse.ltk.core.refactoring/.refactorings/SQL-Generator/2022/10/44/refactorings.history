@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SQL-Generator/model/sql-abstracts.emf&apos; to &apos;sql_abstracts.emf&apos;" description="Rename resource &apos;sql-abstracts.emf&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="model/sql-abstracts.emf" name="sql_abstracts.emf" stamp="1666625833999" updateReferences="true"/>
+</session>

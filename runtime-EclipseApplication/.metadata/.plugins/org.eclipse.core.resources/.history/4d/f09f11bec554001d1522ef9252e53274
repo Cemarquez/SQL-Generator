@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql_abstracts:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sql_abstracts="http://sql_abstracts">
+  <lstSchema>
+    <lstTables name="Profesor" idM="">
+      <lstColumns name="Prof_ID"/>
+      <lstColumns name="Nombre"/>
+      <lstColumns name="Direccion"/>
+      <lstColumns name="Telefono"/>
+      <lstPrimaryKeys name="Prof_ID"/>
+      <lstForeignKeys name="Depto_ID" referPrimaryKey="//@lstSchema.0/@lstTables.2/@lstPrimaryKeys.0"/>
+    </lstTables>
+    <lstTables name="Curso">
+      <lstColumns name="Curso_ID"/>
+      <lstColumns name="Nombre"/>
+      <lstColumns name="Nivel"/>
+      <lstColumns name="Descripción"/>
+      <lstPrimaryKeys name="Curso_ID"/>
+      <lstForeignKeys name="Prof_ID"/>
+    </lstTables>
+    <lstTables name="Depto">
+      <lstColumns name="Nombre"/>
+      <lstColumns name="Director"/>
+      <lstColumns name="Descripción"/>
+      <lstPrimaryKeys name="Depto_ID"/>
+    </lstTables>
+  </lstSchema>
+</sql_abstracts:ModelFactory>

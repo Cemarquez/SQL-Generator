@@ -1,0 +1,162 @@
+/*
+ * 
+ */
+package concrete.diagram.providers.assistants;
+
+/**
+ * @generated
+ */
+public class ConcreteModelingAssistantProviderOfMClassEditPart extends concrete.diagram.providers.ConcreteModelingAssistantProvider {
+
+				/**
+ * @generated
+ */
+	@Override
+
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> getTypesForPopupBar(org.eclipse.core.runtime.IAdaptable host) {
+		java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> types = new java.util.ArrayList<org.eclipse.gmf.runtime.emf.type.core.IElementType>(2);
+					types.add(concrete.diagram.providers.ConcreteElementTypes.MAttribute_3001);
+					types.add(concrete.diagram.providers.ConcreteElementTypes.MFunction_3002);
+					return types;	
+	}
+			
+			/**
+ * @generated
+ */
+	@Override
+
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> getRelTypesOnSource(org.eclipse.core.runtime.IAdaptable source) {
+		org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart sourceEditPart =
+				(org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart) source.getAdapter(
+						org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart.class);
+		return doGetRelTypesOnSource((concrete.diagram.edit.parts.MClassEditPart) sourceEditPart);
+	}
+	
+		/**
+ * @generated
+ */
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> doGetRelTypesOnSource(concrete.diagram.edit.parts.MClassEditPart source) {
+		java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> types = new java.util.ArrayList<org.eclipse.gmf.runtime.emf.type.core.IElementType>(3);
+				types.add(concrete.diagram.providers.ConcreteElementTypes.MAssociation_4001);
+				types.add(concrete.diagram.providers.ConcreteElementTypes.MInheritance_4002);
+				types.add(concrete.diagram.providers.ConcreteElementTypes.MContainment_4003);
+				return types;
+	}
+	
+		/**
+ * @generated
+ */
+	@Override
+
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> getRelTypesOnSourceAndTarget(
+			org.eclipse.core.runtime.IAdaptable source, org.eclipse.core.runtime.IAdaptable target) {
+		org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart sourceEditPart =
+				(org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart) source.getAdapter(
+						org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart.class);
+		org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart targetEditPart =
+				(org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart) target.getAdapter(
+						org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart.class);
+		return doGetRelTypesOnSourceAndTarget((concrete.diagram.edit.parts.MClassEditPart) sourceEditPart, targetEditPart);
+	}
+
+		/**
+ * @generated
+ */
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> doGetRelTypesOnSourceAndTarget(concrete.diagram.edit.parts.MClassEditPart source, org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart targetEditPart) {
+		java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> types = new java.util.LinkedList<org.eclipse.gmf.runtime.emf.type.core.IElementType>();
+							if (targetEditPart instanceof concrete.diagram.edit.parts.MClassEditPart) {
+			types.add(concrete.diagram.providers.ConcreteElementTypes.MAssociation_4001);
+		}
+										if (targetEditPart instanceof concrete.diagram.edit.parts.MClassEditPart) {
+			types.add(concrete.diagram.providers.ConcreteElementTypes.MInheritance_4002);
+		}
+										if (targetEditPart instanceof concrete.diagram.edit.parts.MClassEditPart) {
+			types.add(concrete.diagram.providers.ConcreteElementTypes.MContainment_4003);
+		}
+							return types;
+	}
+
+			/**
+ * @generated
+ */
+	@Override
+
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> getTypesForTarget(org.eclipse.core.runtime.IAdaptable source,
+			org.eclipse.gmf.runtime.emf.type.core.IElementType relationshipType) {
+		org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart sourceEditPart =
+				(org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart) source.getAdapter(
+						org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart.class);
+		return doGetTypesForTarget((concrete.diagram.edit.parts.MClassEditPart) sourceEditPart, relationshipType);
+	}
+	
+		/**
+ * @generated
+ */
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> doGetTypesForTarget(concrete.diagram.edit.parts.MClassEditPart source, org.eclipse.gmf.runtime.emf.type.core.IElementType relationshipType) {
+		java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> types = new java.util.ArrayList<org.eclipse.gmf.runtime.emf.type.core.IElementType>();
+				if (relationshipType == concrete.diagram.providers.ConcreteElementTypes.MAssociation_4001) {
+						types.add(concrete.diagram.providers.ConcreteElementTypes.MClass_2002);
+					}
+		 else 		if (relationshipType == concrete.diagram.providers.ConcreteElementTypes.MInheritance_4002) {
+						types.add(concrete.diagram.providers.ConcreteElementTypes.MClass_2002);
+					}
+		 else 		if (relationshipType == concrete.diagram.providers.ConcreteElementTypes.MContainment_4003) {
+						types.add(concrete.diagram.providers.ConcreteElementTypes.MClass_2002);
+					}
+				return types;
+	}
+
+		/**
+ * @generated
+ */
+	@Override
+
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> getRelTypesOnTarget(org.eclipse.core.runtime.IAdaptable target) {
+		org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart targetEditPart =
+				(org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart) target.getAdapter(
+						org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart.class);
+		return doGetRelTypesOnTarget((concrete.diagram.edit.parts.MClassEditPart) targetEditPart);
+	}
+
+		/**
+ * @generated
+ */
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> doGetRelTypesOnTarget(concrete.diagram.edit.parts.MClassEditPart target) {
+		java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> types = new java.util.ArrayList<org.eclipse.gmf.runtime.emf.type.core.IElementType>(3);
+				types.add(concrete.diagram.providers.ConcreteElementTypes.MAssociation_4001);
+				types.add(concrete.diagram.providers.ConcreteElementTypes.MInheritance_4002);
+				types.add(concrete.diagram.providers.ConcreteElementTypes.MContainment_4003);
+				return types;
+	}
+
+		/**
+ * @generated
+ */
+	@Override
+
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> getTypesForSource(org.eclipse.core.runtime.IAdaptable target,
+			org.eclipse.gmf.runtime.emf.type.core.IElementType relationshipType) {
+		org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart targetEditPart =
+				(org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart) target.getAdapter(
+						org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart.class);
+		return doGetTypesForSource((concrete.diagram.edit.parts.MClassEditPart) targetEditPart, relationshipType);
+	}
+
+		/**
+ * @generated
+ */
+	public java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> doGetTypesForSource(concrete.diagram.edit.parts.MClassEditPart target, org.eclipse.gmf.runtime.emf.type.core.IElementType relationshipType) {
+		java.util.List<org.eclipse.gmf.runtime.emf.type.core.IElementType> types = new java.util.ArrayList<org.eclipse.gmf.runtime.emf.type.core.IElementType>();
+				if (relationshipType == concrete.diagram.providers.ConcreteElementTypes.MAssociation_4001) {
+						types.add(concrete.diagram.providers.ConcreteElementTypes.MClass_2002);
+					}
+		 else 		if (relationshipType == concrete.diagram.providers.ConcreteElementTypes.MInheritance_4002) {
+						types.add(concrete.diagram.providers.ConcreteElementTypes.MClass_2002);
+					}
+		 else 		if (relationshipType == concrete.diagram.providers.ConcreteElementTypes.MContainment_4003) {
+						types.add(concrete.diagram.providers.ConcreteElementTypes.MClass_2002);
+					}
+				return types;
+	}
+
+	}

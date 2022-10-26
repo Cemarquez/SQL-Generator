@@ -1,0 +1,243 @@
+/**
+ */
+package sql_abstracts.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import sql_abstracts.Column;
+import sql_abstracts.ForeignKey;
+import sql_abstracts.PrimaryKey;
+import sql_abstracts.Sql_abstractsPackage;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Column</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link sql_abstracts.impl.ColumnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link sql_abstracts.impl.ColumnImpl#getLstPrimaryKeys <em>Lst Primary Keys</em>}</li>
+ *   <li>{@link sql_abstracts.impl.ColumnImpl#getLstForeignKeys <em>Lst Foreign Keys</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ColumnImpl extends ModelElementImpl implements Column {
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLstPrimaryKeys() <em>Lst Primary Keys</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLstPrimaryKeys()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PrimaryKey> lstPrimaryKeys;
+
+	/**
+	 * The cached value of the '{@link #getLstForeignKeys() <em>Lst Foreign Keys</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLstForeignKeys()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ForeignKey> lstForeignKeys;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ColumnImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return Sql_abstractsPackage.Literals.COLUMN;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.COLUMN__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<PrimaryKey> getLstPrimaryKeys() {
+		if (lstPrimaryKeys == null) {
+			lstPrimaryKeys = new EObjectResolvingEList<PrimaryKey>(PrimaryKey.class, this, Sql_abstractsPackage.COLUMN__LST_PRIMARY_KEYS);
+		}
+		return lstPrimaryKeys;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ForeignKey> getLstForeignKeys() {
+		if (lstForeignKeys == null) {
+			lstForeignKeys = new EObjectResolvingEList<ForeignKey>(ForeignKey.class, this, Sql_abstractsPackage.COLUMN__LST_FOREIGN_KEYS);
+		}
+		return lstForeignKeys;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case Sql_abstractsPackage.COLUMN__TYPE:
+				return getType();
+			case Sql_abstractsPackage.COLUMN__LST_PRIMARY_KEYS:
+				return getLstPrimaryKeys();
+			case Sql_abstractsPackage.COLUMN__LST_FOREIGN_KEYS:
+				return getLstForeignKeys();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case Sql_abstractsPackage.COLUMN__TYPE:
+				setType((String)newValue);
+				return;
+			case Sql_abstractsPackage.COLUMN__LST_PRIMARY_KEYS:
+				getLstPrimaryKeys().clear();
+				getLstPrimaryKeys().addAll((Collection<? extends PrimaryKey>)newValue);
+				return;
+			case Sql_abstractsPackage.COLUMN__LST_FOREIGN_KEYS:
+				getLstForeignKeys().clear();
+				getLstForeignKeys().addAll((Collection<? extends ForeignKey>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case Sql_abstractsPackage.COLUMN__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case Sql_abstractsPackage.COLUMN__LST_PRIMARY_KEYS:
+				getLstPrimaryKeys().clear();
+				return;
+			case Sql_abstractsPackage.COLUMN__LST_FOREIGN_KEYS:
+				getLstForeignKeys().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case Sql_abstractsPackage.COLUMN__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case Sql_abstractsPackage.COLUMN__LST_PRIMARY_KEYS:
+				return lstPrimaryKeys != null && !lstPrimaryKeys.isEmpty();
+			case Sql_abstractsPackage.COLUMN__LST_FOREIGN_KEYS:
+				return lstForeignKeys != null && !lstForeignKeys.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (type: ");
+		result.append(type);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ColumnImpl

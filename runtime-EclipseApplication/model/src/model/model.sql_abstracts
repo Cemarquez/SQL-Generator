@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql_abstracts:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sql_abstracts="http://sql_abstracts">
+  <lstSchema name="Colegio">
+    <lstTables name="Profesor" idM="">
+      <lstColumns name="Nombre" type="VARCHAR"/>
+      <lstColumns name="Direccion" type="VARCHAR"/>
+      <lstColumns name="Telefono" type="VARCHAR"/>
+      <lstPrimaryKeys name="Prof_ID" type="NUMBER" lstReferForeignKeys="//@lstSchema.0/@lstTables.1/@lstForeignKeys.0"/>
+      <lstForeignKeys name="Depto_ID" referPrimaryKey="//@lstSchema.0/@lstTables.2/@lstPrimaryKeys.0"/>
+    </lstTables>
+    <lstTables name="Curso">
+      <lstColumns name="Nombre" type="VARCHAR"/>
+      <lstColumns name="Nivel" type="VARCHAR"/>
+      <lstColumns name="Descripción" type="VARCHAR"/>
+      <lstPrimaryKeys name="Curso_ID" type="NUMBER"/>
+      <lstForeignKeys name="Prof_ID" referPrimaryKey="//@lstSchema.0/@lstTables.0/@lstPrimaryKeys.0"/>
+    </lstTables>
+    <lstTables name="Depto">
+      <lstColumns name="Nombre"/>
+      <lstColumns name="Director"/>
+      <lstColumns name="Descripción"/>
+      <lstPrimaryKeys name="Depto_ID" type="NUMBER" lstReferForeignKeys="//@lstSchema.0/@lstTables.0/@lstForeignKeys.0"/>
+    </lstTables>
+  </lstSchema>
+</sql_abstracts:ModelFactory>
