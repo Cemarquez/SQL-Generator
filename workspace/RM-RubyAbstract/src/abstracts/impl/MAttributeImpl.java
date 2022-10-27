@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link abstracts.impl.MAttributeImpl#isPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link abstracts.impl.MAttributeImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link abstracts.impl.MAttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link abstracts.impl.MAttributeImpl#isForeignKey <em>Foreign Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -192,6 +193,26 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @ordered
 	 */
 	protected String type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isForeignKey() <em>Foreign Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForeignKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FOREIGN_KEY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isForeignKey() <em>Foreign Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForeignKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean foreignKey = FOREIGN_KEY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -402,6 +423,29 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @generated
 	 */
 	@Override
+	public boolean isForeignKey() {
+		return foreignKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setForeignKey(boolean newForeignKey) {
+		boolean oldForeignKey = foreignKey;
+		foreignKey = newForeignKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsPackage.MATTRIBUTE__FOREIGN_KEY, oldForeignKey, foreignKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AbstractsPackage.MATTRIBUTE__NAME:
@@ -420,6 +464,8 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return isNullable();
 			case AbstractsPackage.MATTRIBUTE__TYPE:
 				return getType();
+			case AbstractsPackage.MATTRIBUTE__FOREIGN_KEY:
+				return isForeignKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -455,6 +501,9 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return;
 			case AbstractsPackage.MATTRIBUTE__TYPE:
 				setType((String)newValue);
+				return;
+			case AbstractsPackage.MATTRIBUTE__FOREIGN_KEY:
+				setForeignKey((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -492,6 +541,9 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 			case AbstractsPackage.MATTRIBUTE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case AbstractsPackage.MATTRIBUTE__FOREIGN_KEY:
+				setForeignKey(FOREIGN_KEY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -520,6 +572,8 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return nullable != NULLABLE_EDEFAULT;
 			case AbstractsPackage.MATTRIBUTE__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case AbstractsPackage.MATTRIBUTE__FOREIGN_KEY:
+				return foreignKey != FOREIGN_KEY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -550,6 +604,8 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 		result.append(nullable);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", foreignKey: ");
+		result.append(foreignKey);
 		result.append(')');
 		return result.toString();
 	}

@@ -68,6 +68,7 @@ public class MAttributeItemProvider
 			addPrimaryKeyPropertyDescriptor(object);
 			addNullablePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addForeignKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -249,6 +250,28 @@ public class MAttributeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Foreign Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addForeignKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MAttribute_foreignKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MAttribute_foreignKey_feature", "_UI_MAttribute_type"),
+				 AbstractsPackage.Literals.MATTRIBUTE__FOREIGN_KEY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns MAttribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,6 +317,7 @@ public class MAttributeItemProvider
 			case AbstractsPackage.MATTRIBUTE__PRIMARY_KEY:
 			case AbstractsPackage.MATTRIBUTE__NULLABLE:
 			case AbstractsPackage.MATTRIBUTE__TYPE:
+			case AbstractsPackage.MATTRIBUTE__FOREIGN_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

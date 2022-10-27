@@ -302,6 +302,16 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPrimaryKey_Table() {
+		return (EAttribute)primaryKeyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getForeignKey() {
 		return foreignKeyEClass;
 	}
@@ -314,6 +324,26 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	@Override
 	public EReference getForeignKey_ReferPrimaryKey() {
 		return (EReference)foreignKeyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getForeignKey_Nullable() {
+		return (EAttribute)foreignKeyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getForeignKey_Type() {
+		return (EAttribute)foreignKeyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -366,9 +396,12 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		primaryKeyEClass = createEClass(PRIMARY_KEY);
 		createEReference(primaryKeyEClass, PRIMARY_KEY__LST_REFER_FOREIGN_KEYS);
+		createEAttribute(primaryKeyEClass, PRIMARY_KEY__TABLE);
 
 		foreignKeyEClass = createEClass(FOREIGN_KEY);
 		createEReference(foreignKeyEClass, FOREIGN_KEY__REFER_PRIMARY_KEY);
+		createEAttribute(foreignKeyEClass, FOREIGN_KEY__NULLABLE);
+		createEAttribute(foreignKeyEClass, FOREIGN_KEY__TYPE);
 	}
 
 	/**
@@ -427,9 +460,12 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		initEClass(primaryKeyEClass, PrimaryKey.class, "PrimaryKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimaryKey_LstReferForeignKeys(), this.getForeignKey(), null, "lstReferForeignKeys", null, 0, -1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrimaryKey_Table(), ecorePackage.getEString(), "table", null, 0, 1, PrimaryKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getForeignKey_ReferPrimaryKey(), this.getPrimaryKey(), null, "referPrimaryKey", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForeignKey_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForeignKey_Type(), ecorePackage.getEString(), "type", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

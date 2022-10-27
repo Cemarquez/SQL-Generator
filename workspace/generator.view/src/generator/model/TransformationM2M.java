@@ -186,6 +186,7 @@ public class TransformationM2M {
 			newAttribute.setType(a.getType());
 			newAttribute.setPrimaryKey(a.isPrimaryKey());
 			newAttribute.setNullable(a.isNullable());
+			newAttribute.setForeignKey(a.isForeignKey());
 			atributos.add(newAttribute);
 		}
 		

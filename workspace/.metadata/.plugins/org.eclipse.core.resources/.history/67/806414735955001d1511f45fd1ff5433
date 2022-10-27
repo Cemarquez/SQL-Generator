@@ -1,0 +1,80 @@
+@namespace(uri="abstract", prefix="abstract")
+@gmf
+package abstracts;
+
+class ModelFactory{
+	attr String nombre;
+	attr String ruta;
+	val MPackage[*] lstPackages;
+	ref MClass[*] lstAllClass;
+	ref MPackage[*] lstAllPackage;
+}
+
+class MPackage{
+	attr String name;
+	attr String path;
+	val MClass[*] lstMClass;
+	val MPackage[*] lstMPackage;
+}
+
+class MClassDiagram{
+	attr String name;
+	val MPackage[*] lstMPackage;
+	val MClass[*] lstMClass;
+}
+
+class MClass{
+	attr String name;
+	attr String accessModifier;
+	attr String comments;
+	attr String path;
+	val MAssociation[*] lstMAssoctiation;
+	val MInheritance[*] lstMInheritance;
+	val MContainment[*] lstMContainment;
+	val MAttribute[*] lstAttributes;
+	val MFunction[*] lstFunction;
+}
+
+class MAssociation{
+	ref MClass source;
+	ref MClass target;
+	attr String relationshipType;
+	attr String multiplicitySource;
+	attr String multiplicityTarget;
+	attr String sourceRole;
+	attr String targetRole;
+}
+class MInheritance{
+	ref MClass source;
+	ref MClass target;
+	
+}
+
+class MContainment{
+	ref MClass source;
+	ref MClass target;
+	attr String multiplicityTarget;
+	attr String sourceRole;
+	attr String targetRole;
+}
+
+class MAttribute{
+	attr String name;
+	attr String defaultValue;
+	attr String comments;
+	attr boolean constant;
+	attr boolean removeToInit;
+	attr boolean primaryKey;
+	attr boolean nullable;
+	attr String type;
+}
+
+class MFunction{
+	attr String name;
+	attr String accessModifier; 
+	attr String semantics;
+	attr String comments;
+	attr String parameters;
+	
+}
+

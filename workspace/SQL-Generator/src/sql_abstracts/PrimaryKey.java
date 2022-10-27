@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link sql_abstracts.PrimaryKey#getLstReferForeignKeys <em>Lst Refer Foreign Keys</em>}</li>
+ *   <li>{@link sql_abstracts.PrimaryKey#getTable <em>Table</em>}</li>
  * </ul>
  *
  * @see sql_abstracts.Sql_abstractsPackage#getPrimaryKey()
@@ -32,5 +33,27 @@ public interface PrimaryKey extends Column {
 	 * @generated
 	 */
 	EList<ForeignKey> getLstReferForeignKeys();
+
+	/**
+	 * Returns the value of the '<em><b>Table</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Table</em>' attribute.
+	 * @see #setTable(String)
+	 * @see sql_abstracts.Sql_abstractsPackage#getPrimaryKey_Table()
+	 * @model
+	 * @generated
+	 */
+	String getTable();
+
+	/**
+	 * Sets the value of the '{@link sql_abstracts.PrimaryKey#getTable <em>Table</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Table</em>' attribute.
+	 * @see #getTable()
+	 * @generated
+	 */
+	void setTable(String value);
 
 } // PrimaryKey

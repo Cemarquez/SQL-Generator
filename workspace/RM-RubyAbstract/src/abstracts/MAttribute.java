@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link abstracts.MAttribute#isPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link abstracts.MAttribute#isNullable <em>Nullable</em>}</li>
  *   <li>{@link abstracts.MAttribute#getType <em>Type</em>}</li>
+ *   <li>{@link abstracts.MAttribute#isForeignKey <em>Foreign Key</em>}</li>
  * </ul>
  *
  * @see abstracts.AbstractsPackage#getMAttribute()
@@ -203,5 +204,27 @@ public interface MAttribute extends EObject {
 	 * @generated
 	 */
 	void setType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Foreign Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Foreign Key</em>' attribute.
+	 * @see #setForeignKey(boolean)
+	 * @see abstracts.AbstractsPackage#getMAttribute_ForeignKey()
+	 * @model
+	 * @generated
+	 */
+	boolean isForeignKey();
+
+	/**
+	 * Sets the value of the '{@link abstracts.MAttribute#isForeignKey <em>Foreign Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Foreign Key</em>' attribute.
+	 * @see #isForeignKey()
+	 * @generated
+	 */
+	void setForeignKey(boolean value);
 
 } // MAttribute

@@ -5,12 +5,16 @@
     <lstMClass name="Profesor" path="Colegio">
       <lstMAttribute name="Prof_ID" primaryKey="true" type="Number"/>
       <lstMAttribute name="Nombre" nullable="true" type="VARCHAR"/>
+      <lstMAttribute name="Depto_ID" nullable="true" foreignKey="true"/>
     </lstMClass>
     <lstMClass name="Curso" path="Colegio">
       <lstMAttribute name="Curso_ID" primaryKey="true" type="Number"/>
+      <lstMAttribute name="Prof_ID" nullable="true" foreignKey="true"/>
     </lstMClass>
     <lstMClass name="Depto" path="Colegio">
       <lstMAttribute name="Depto_ID" primaryKey="true" type="Number"/>
     </lstMClass>
+    <lstMContainment source="//@lstMDiagrams.0/@lstMClass.0" target="//@lstMDiagrams.0/@lstMClass.1" multiplicityTarget="n" sourceRole="theProfesor" targetRole="lstCurso"/>
+    <lstMContainment source="//@lstMDiagrams.0/@lstMClass.2" target="//@lstMDiagrams.0/@lstMClass.0" multiplicityTarget="m" sourceRole="theDepto" targetRole="lstProfesor"/>
   </lstMDiagrams>
 </concrete:ModelFactory>

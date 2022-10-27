@@ -315,13 +315,22 @@ public interface Sql_abstractsPackage extends EPackage {
 	int PRIMARY_KEY__LST_REFER_FOREIGN_KEYS = COLUMN_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Table</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY__TABLE = COLUMN_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Primary Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMARY_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 1;
+	int PRIMARY_KEY_FEATURE_COUNT = COLUMN_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link sql_abstracts.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
@@ -352,13 +361,31 @@ public interface Sql_abstractsPackage extends EPackage {
 	int FOREIGN_KEY__REFER_PRIMARY_KEY = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY__NULLABLE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Foreign Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int FOREIGN_KEY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 
 	/**
@@ -532,6 +559,17 @@ public interface Sql_abstractsPackage extends EPackage {
 	EReference getPrimaryKey_LstReferForeignKeys();
 
 	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.PrimaryKey#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table</em>'.
+	 * @see sql_abstracts.PrimaryKey#getTable()
+	 * @see #getPrimaryKey()
+	 * @generated
+	 */
+	EAttribute getPrimaryKey_Table();
+
+	/**
 	 * Returns the meta object for class '{@link sql_abstracts.ForeignKey <em>Foreign Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,6 +589,28 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getForeignKey_ReferPrimaryKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.ForeignKey#isNullable <em>Nullable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nullable</em>'.
+	 * @see sql_abstracts.ForeignKey#isNullable()
+	 * @see #getForeignKey()
+	 * @generated
+	 */
+	EAttribute getForeignKey_Nullable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.ForeignKey#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see sql_abstracts.ForeignKey#getType()
+	 * @see #getForeignKey()
+	 * @generated
+	 */
+	EAttribute getForeignKey_Type();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -715,6 +775,14 @@ public interface Sql_abstractsPackage extends EPackage {
 		EReference PRIMARY_KEY__LST_REFER_FOREIGN_KEYS = eINSTANCE.getPrimaryKey_LstReferForeignKeys();
 
 		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRIMARY_KEY__TABLE = eINSTANCE.getPrimaryKey_Table();
+
+		/**
 		 * The meta object literal for the '{@link sql_abstracts.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -731,6 +799,22 @@ public interface Sql_abstractsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FOREIGN_KEY__REFER_PRIMARY_KEY = eINSTANCE.getForeignKey_ReferPrimaryKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Nullable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOREIGN_KEY__NULLABLE = eINSTANCE.getForeignKey_Nullable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOREIGN_KEY__TYPE = eINSTANCE.getForeignKey_Type();
 
 	}
 

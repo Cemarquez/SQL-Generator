@@ -2,11 +2,15 @@
 <abstract:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:abstract="abstract" nombre="Colegio" lstAllClass="//@lstPackages.0/@lstMClass.0 //@lstPackages.0/@lstMClass.1 //@lstPackages.0/@lstMClass.2" lstAllPackage="//@lstPackages.0">
   <lstPackages name="Colegio" path="">
     <lstMClass name="Profesor" path="Colegio">
+      <lstMContainment source="//@lstPackages.0/@lstMClass.2" target="//@lstPackages.0/@lstMClass.0" multiplicityTarget="m" sourceRole="theDepto" targetRole="lstProfesor"/>
       <lstAttributes name="Prof_ID" primaryKey="true" type="Number"/>
       <lstAttributes name="Nombre" nullable="true" type="VARCHAR"/>
+      <lstAttributes name="Depto_ID" nullable="true" foreignKey="true"/>
     </lstMClass>
     <lstMClass name="Curso" path="Colegio">
+      <lstMContainment source="//@lstPackages.0/@lstMClass.0" target="//@lstPackages.0/@lstMClass.1" multiplicityTarget="n" sourceRole="theProfesor" targetRole="lstCurso"/>
       <lstAttributes name="Curso_ID" primaryKey="true" type="Number"/>
+      <lstAttributes name="Prof_ID" nullable="true" foreignKey="true"/>
     </lstMClass>
     <lstMClass name="Depto" path="Colegio">
       <lstAttributes name="Depto_ID" primaryKey="true" type="Number"/>

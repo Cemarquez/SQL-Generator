@@ -67,6 +67,7 @@ class MAttribute{
 	attr boolean primaryKey;
 	attr boolean nullable;
 	attr String type;
+	attr boolean foreignKey;
 }
 
 class MFunction{

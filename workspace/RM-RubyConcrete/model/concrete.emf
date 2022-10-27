@@ -49,6 +49,7 @@ class MAttribute{
 	attr boolean primaryKey;
 	attr boolean nullable;
 	attr String type;
+	attr boolean foreignKey;
 	
 }
 @gmf.link(source = "source", target = "target", style = "solid", width = "1", color="255,0,0")

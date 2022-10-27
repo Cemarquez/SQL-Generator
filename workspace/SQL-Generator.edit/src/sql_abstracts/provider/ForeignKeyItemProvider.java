@@ -12,6 +12,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import sql_abstracts.ForeignKey;
 import sql_abstracts.Sql_abstractsPackage;
 
@@ -44,6 +46,8 @@ public class ForeignKeyItemProvider extends ModelElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addReferPrimaryKeyPropertyDescriptor(object);
+			addNullablePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +70,50 @@ public class ForeignKeyItemProvider extends ModelElementItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nullable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNullablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ForeignKey_nullable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ForeignKey_nullable_feature", "_UI_ForeignKey_type"),
+				 Sql_abstractsPackage.Literals.FOREIGN_KEY__NULLABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ForeignKey_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ForeignKey_type_feature", "_UI_ForeignKey_type"),
+				 Sql_abstractsPackage.Literals.FOREIGN_KEY__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -106,6 +154,13 @@ public class ForeignKeyItemProvider extends ModelElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ForeignKey.class)) {
+			case Sql_abstractsPackage.FOREIGN_KEY__NULLABLE:
+			case Sql_abstractsPackage.FOREIGN_KEY__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

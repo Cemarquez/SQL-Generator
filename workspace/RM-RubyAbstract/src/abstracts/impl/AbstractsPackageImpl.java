@@ -668,6 +668,16 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMAttribute_ForeignKey() {
+		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMFunction() {
 		return mFunctionEClass;
 	}
@@ -809,6 +819,7 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 		createEAttribute(mAttributeEClass, MATTRIBUTE__PRIMARY_KEY);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__NULLABLE);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__TYPE);
+		createEAttribute(mAttributeEClass, MATTRIBUTE__FOREIGN_KEY);
 
 		mFunctionEClass = createEClass(MFUNCTION);
 		createEAttribute(mFunctionEClass, MFUNCTION__NAME);
@@ -906,6 +917,7 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 		initEAttribute(getMAttribute_PrimaryKey(), ecorePackage.getEBoolean(), "primaryKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_ForeignKey(), ecorePackage.getEBoolean(), "foreignKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mFunctionEClass, MFunction.class, "MFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

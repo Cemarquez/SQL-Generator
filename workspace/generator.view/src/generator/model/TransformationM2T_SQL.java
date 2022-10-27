@@ -6,7 +6,9 @@ import java.io.FileWriter;
 import javax.swing.JFileChooser;
 
 import sql_abstracts.Column;
+import sql_abstracts.ForeignKey;
 import sql_abstracts.ModelFactory;
+import sql_abstracts.PrimaryKey;
 import sql_abstracts.Schema;
 import sql_abstracts.Table;
 
@@ -43,11 +45,17 @@ public class TransformationM2T_SQL {
 
 	private void crearSchema(Schema s) {
 		StringBuilder textCodigo = new StringBuilder();
-		textCodigo.append("CREATE DATABASE " + s.getName() +";\n");
-		textCodigo.append("USE " + s.getName() +";\n");
+		textCodigo.append("CREATE DATABASE " + s.getName() +";\n\n");
+		textCodigo.append("USE " + s.getName() +";\n\n");
 		for(Table t : s.getLstTables()) {
 			
 			textCodigo.append(crearTables(t));
+		}
+		
+		for(Table t : s.getLstTables()) {
+			for(ForeignKey fk : t.getLstForeignKeys()) {
+				textCodigo.append(crearForeignKey(fk, t));
+			}
 		}
 		
 		guardarArchivo(textCodigo.toString(),path.getPath() , s.getName());
@@ -56,24 +64,34 @@ public class TransformationM2T_SQL {
 
 	private String crearTables(Table t) {
 		String table ="";
-		table+="CREATE TABLE " + t.getName() +"(\n";
+		table+="CREATE TABLE " + t.getName() +" (\n";
 		
 		for(Column c : t.getLstColumns())
-			table+=crearColumns(c);
+			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+		
+		for(PrimaryKey c : t.getLstPrimaryKeys())
+			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+		
+		for(ForeignKey c : t.getLstForeignKeys())
+			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
 		
 		table+=");\n\n";
+		
+		for(PrimaryKey pk : t.getLstPrimaryKeys())
+			table+="ALTER TABLE " + t.getName() + " ADD CONSTRAINT " + pk.getName()+"pk" + " PRIMARY KEY ( "+ pk.getName() +" ); \n\n";
+		
 		return table;
 	}
 
-	private String crearColumns(Column c) {
-		String col = "";
-		return col;
+	
+	private String crearForeignKey(ForeignKey fk, Table t) {
+		String f ="ALTER TABLE " +t.getName() +"\n";
+		f+= "\tADD CONSTRAINT " + fk.getName()+"fk" + " FOREIGN ( " + fk.getName() + " ) \n";
+		f+= "\t\tREFERENCES " + fk.getReferPrimaryKey().getTable()+ " ( " + fk.getReferPrimaryKey().getName() + " ); \n";
+		
+		
+		return f;
 	}
-	
-	
-	
-	
-	
 	
 	private void guardarArchivo(String cadena, String ruta , String nombre) {
 		try

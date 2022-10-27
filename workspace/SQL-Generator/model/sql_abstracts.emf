@@ -28,10 +28,13 @@ class Column extends ModelElement{
 
 class PrimaryKey extends Column{
 	ref ForeignKey[*] lstReferForeignKeys;
+	attr String table;
 }
 
 class ForeignKey extends ModelElement{
     ref PrimaryKey referPrimaryKey;
+    attr boolean nullable;
+    attr String type;
 }
 
 

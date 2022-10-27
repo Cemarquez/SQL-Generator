@@ -377,13 +377,22 @@ public interface ConcretePackage extends EPackage {
 	int MATTRIBUTE__TYPE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Foreign Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__FOREIGN_KEY = 8;
+
+	/**
 	 * The number of structural features of the '<em>MAttribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATTRIBUTE_FEATURE_COUNT = 8;
+	int MATTRIBUTE_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link concrete.impl.MAssociationImpl <em>MAssociation</em>}' class.
@@ -970,6 +979,17 @@ public interface ConcretePackage extends EPackage {
 	EAttribute getMAttribute_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link concrete.MAttribute#isForeignKey <em>Foreign Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Foreign Key</em>'.
+	 * @see concrete.MAttribute#isForeignKey()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_ForeignKey();
+
+	/**
 	 * Returns the meta object for class '{@link concrete.MAssociation <em>MAssociation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1497,6 +1517,14 @@ public interface ConcretePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MATTRIBUTE__TYPE = eINSTANCE.getMAttribute_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Foreign Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__FOREIGN_KEY = eINSTANCE.getMAttribute_ForeignKey();
 
 		/**
 		 * The meta object literal for the '{@link concrete.impl.MAssociationImpl <em>MAssociation</em>}' class.
