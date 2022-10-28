@@ -3,6 +3,7 @@ package generator.model;
 import abstracts.AbstractsFactory;
 import concrete.ConcretePackage;
 import concrete.MClassDiagram;
+import sql_abstracts.Sql_abstractsFactory;
 
 public class ModelFactoryModel {
 
@@ -147,7 +148,8 @@ public class ModelFactoryModel {
 		modelFactoryAbstracta =  AbstractsFactory.eINSTANCE.createModelFactory();
 		salvarAbstracta();
 		
-		
+		modelFactorySQL = Sql_abstractsFactory.eINSTANCE.createModelFactory();
+		salvarAbstractaSQL();
 			
 			
 		

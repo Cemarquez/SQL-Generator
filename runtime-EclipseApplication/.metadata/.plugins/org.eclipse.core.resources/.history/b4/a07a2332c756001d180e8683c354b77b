@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sql_abstracts:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sql_abstracts="http://sql_abstracts">
+  <lstSchema name="Colegio">
+    <lstTables name="Profesor">
+      <lstColumns name="Nombre" type="VARCHAR" nullable="true"/>
+      <lstPrimaryKeys name="Prof_ID" type="Number" lstReferForeignKeys="//@lstSchema.0/@lstTables.1/@lstForeignKeys.0" table="Profesor"/>
+      <lstForeignKeys name="Depto_ID" referPrimaryKey="//@lstSchema.0/@lstTables.2/@lstPrimaryKeys.0" nullable="true" type="Number"/>
+    </lstTables>
+    <lstTables name="Curso">
+      <lstPrimaryKeys name="Curso_ID" type="Number" table="Curso"/>
+      <lstForeignKeys name="Prof_ID" referPrimaryKey="//@lstSchema.0/@lstTables.0/@lstPrimaryKeys.0" nullable="true" type="Number"/>
+    </lstTables>
+    <lstTables name="Depto">
+      <lstPrimaryKeys name="Depto_ID" type="Number" lstReferForeignKeys="//@lstSchema.0/@lstTables.0/@lstForeignKeys.0" table="Depto"/>
+    </lstTables>
+  </lstSchema>
+</sql_abstracts:ModelFactory>

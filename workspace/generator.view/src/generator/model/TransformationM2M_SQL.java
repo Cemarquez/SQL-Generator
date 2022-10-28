@@ -4,6 +4,7 @@ import abstracts.MAssociation;
 import abstracts.MAttribute;
 import abstracts.MClass;
 import abstracts.MContainment;
+import abstracts.MInheritance;
 import sql_abstracts.Column;
 import sql_abstracts.ForeignKey;
 import sql_abstracts.PrimaryKey;
@@ -66,7 +67,6 @@ public class TransformationM2M_SQL {
 					c.setName(a.getName());
 					c.setNullable(false);
 					c.setTable(t.getName());
-					c.setComments(a.getComments());
 					t.getLstPrimaryKeys().add(c);
 					
 				}
@@ -94,12 +94,140 @@ public class TransformationM2M_SQL {
 					tTarget.getLstForeignKeys().add(f);
 				}
 			}
+		}
+		
+		for(MAssociation a : cl.getLstMAssoctiation()) {
+			if(a.getMultiplicitySource().equals("1") && a.getMultiplicityTarget().equals("n")) {
+				for(MAttribute at : a.getTarget().getLstAttributes()) {
+					if(at.isForeignKey()) {
+						Table tTarget = buscarTabla(a.getTarget().getName());
+						PrimaryKey pk = buscarPK(a.getSource().getName(), at.getName());
+						ForeignKey f = Sql_abstractsFactory.eINSTANCE.createForeignKey();
+						f.setName(at.getName());
+						f.setNullable(at.isNullable());
+						f.setType(pk.getType());
+						f.setReferPrimaryKey(pk);
+						pk.getLstReferForeignKeys().add(f);
+						tTarget.getLstForeignKeys().add(f);
+					}
+				}
+			}
 			
+
+			crearIntermedias(a);
+		}
+		
+		for(MInheritance a : cl.getLstMInheritance()) {
+			Table t= Sql_abstractsFactory.eINSTANCE.createTable();
+			t.setName(a.getTarget().getName());
+			modelFactorySQL.getLstSchema().get(0).getLstTables().add(t);
+			for(MAttribute at : a.getTarget().getLstAttributes()) {
+				
+				if(at.isPrimaryKey()) {
+					PrimaryKey pk = Sql_abstractsFactory.eINSTANCE.createPrimaryKey();
+					pk.setName(at.getName());
+					pk.setTable(a.getTarget().getName());
+					pk.setType(at.getType());
+					pk.setNullable(false);
+					t.getLstPrimaryKeys().add(pk);
+					
+				}else if(at.isForeignKey()) {
+					PrimaryKey pk = buscarPK(a.getSource().getName(), at.getName());
+					ForeignKey f = Sql_abstractsFactory.eINSTANCE.createForeignKey();
+					f.setName(at.getName());
+					f.setNullable(at.isNullable());
+					f.setType(pk.getType());
+					f.setReferPrimaryKey(pk);
+					pk.getLstReferForeignKeys().add(f);
+					t.getLstForeignKeys().add(f);
+					
+				}else {
+					Column c = Sql_abstractsFactory.eINSTANCE.createColumn();
+					c.setType(at.getType());
+					c.setName(at.getName());
+					c.setNullable(at.isNullable());
+					c.setComments(at.getComments());
+					t.getLstColumns().add(c);
+				}
+			}
+			
+			for(MAttribute at : a.getTarget().getLstAttributes()) {
+				if(at.isPrimaryKey()) {
+					PrimaryKey pk = Sql_abstractsFactory.eINSTANCE.createPrimaryKey();
+					pk.setName(at.getName());
+					pk.setTable(a.getTarget().getName());
+					pk.setType(at.getType());
+					pk.setNullable(false);
+					t.getLstPrimaryKeys().add(pk);
+					
+				}else if(at.isForeignKey()) {
+					PrimaryKey pk = buscarPK(a.getSource().getName(), at.getName());
+					ForeignKey f = Sql_abstractsFactory.eINSTANCE.createForeignKey();
+					f.setName(at.getName());
+					f.setNullable(at.isNullable());
+					f.setType(pk.getType());
+					f.setReferPrimaryKey(pk);
+					pk.getLstReferForeignKeys().add(f);
+					t.getLstForeignKeys().add(f);
+					
+				}else {
+					Column c = Sql_abstractsFactory.eINSTANCE.createColumn();
+					c.setType(at.getType());
+					c.setName(at.getName());
+					c.setNullable(at.isNullable());
+					c.setComments(at.getComments());
+					t.getLstColumns().add(c);
+				}
+			}
+		}
+		
+	}
+	
+	private void crearIntermedias(MAssociation a){
+		if(a.getMultiplicitySource().equalsIgnoreCase("n") && a.getMultiplicityTarget().equalsIgnoreCase("n")) {
+			Table t = Sql_abstractsFactory.eINSTANCE.createTable();
+			t.setName(a.getSource().getName() + a.getTarget().getName());
+			PrimaryKey pk = Sql_abstractsFactory.eINSTANCE.createPrimaryKey();
+			pk.setName(t.getName()+"_ID");
+			pk.setNullable(false);
+			pk.setTable(t.getName());
+			pk.setType("NUMBER");
+			PrimaryKey pkOrigen=null;
+			PrimaryKey pkDestino=null;
+			
+			for(MAttribute at : a.getSource().getLstAttributes()) 
+				if(at.isPrimaryKey()) {
+					pkOrigen = buscarPK(a.getSource().getName(), at.getName());
+					break;
+				}
+				
+			for(MAttribute at : a.getTarget().getLstAttributes()) 
+				if(at.isPrimaryKey()) {
+					pkDestino = buscarPK(a.getTarget().getName(), at.getName());
+					break;
+				}
+		
+			ForeignKey fkOrigen = Sql_abstractsFactory.eINSTANCE.createForeignKey();
+			fkOrigen.setName(pkOrigen.getName());
+			fkOrigen.setNullable(true);
+			fkOrigen.setReferPrimaryKey(pkOrigen);
+			fkOrigen.setType(pkOrigen.getType());
+			
+			ForeignKey fkDestino = Sql_abstractsFactory.eINSTANCE.createForeignKey();
+			fkDestino.setName(pkDestino.getName());
+			fkDestino.setNullable(true);
+			fkDestino.setReferPrimaryKey(pkDestino);
+			fkDestino.setType(pkDestino.getType());
+			
+			t.getLstPrimaryKeys().add(pk);
+			t.getLstForeignKeys().add(fkDestino);
+			t.getLstForeignKeys().add(fkOrigen);
+			modelFactorySQL.getLstSchema().get(0).getLstTables().add(t);
 			
 		}
 	}
 	
-	public Table buscarTabla(String name) {
+	private Table buscarTabla(String name) {
 		for(Table t : modelFactorySQL.getLstSchema().get(0).getLstTables()) {
 			if(t.getName().equals(name))
 				return t;
@@ -110,8 +238,6 @@ public class TransformationM2M_SQL {
 	public PrimaryKey buscarPK(String tName, String pkName) {
 		for(Table t : modelFactorySQL.getLstSchema().get(0).getLstTables()) {
 			if(tName.equalsIgnoreCase(t.getName())) {
-				System.out.println(t.getName());
-				System.out.println(t.getLstPrimaryKeys().size());
 				for(PrimaryKey pk : t.getLstPrimaryKeys()) {
 					System.out.println(pk.getName());
 					if(pk.getName().equals(pkName))
