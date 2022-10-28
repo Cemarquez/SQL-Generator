@@ -108,7 +108,7 @@ public class GeneratorView extends ViewPart {
 				mfm.generarModelToModelSQL();
 			}
 		});
-		btnM2MSQL.setText("Generar M2M SQL");
+		btnM2MSQL.setText("Generar modelo relacional");
 		btnM2MSQL.setBounds(115, 22, 334, 38);
 		
 		
@@ -123,7 +123,7 @@ public class GeneratorView extends ViewPart {
 				mfm.generarModelToTextSQL();
 			}
 		});
-		btnM2TSQL.setText("Generar M2M SQL");
+		btnM2TSQL.setText("Generar DDL");
 		btnM2TSQL.setBounds(115, 22, 334, 38);
 	}
 

@@ -27,7 +27,6 @@ public class TransformationM2T_SQL {
 		
 		for(Schema s : modelFactory.getLstSchema()) {
 			chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			String nombreProyecto = s.getName();
 			int returnVal = chooser.showOpenDialog(null);
 		    if(returnVal == JFileChooser.APPROVE_OPTION) {
 		    	path =  chooser.getSelectedFile();
@@ -47,6 +46,8 @@ public class TransformationM2T_SQL {
 		StringBuilder textCodigo = new StringBuilder();
 		textCodigo.append("CREATE DATABASE " + s.getName() +";\n\n");
 		textCodigo.append("USE " + s.getName() +";\n\n");
+		
+		textCodigo.append("-- Creación de las tablas \n\n");
 		for(Table t : s.getLstTables()) {
 			
 			textCodigo.append(crearTables(t));
@@ -58,6 +59,17 @@ public class TransformationM2T_SQL {
 			}
 		}
 		
+		
+		textCodigo.append("\n-- Creación de los disparadores \n");
+		for(Table t : s.getLstTables()) {
+			textCodigo.append(crearTriggersInsert(t));
+			textCodigo.append(crearTriggersUpdate(t));
+			textCodigo.append(crearTriggersDelete(t));
+			textCodigo.append("\n");
+		}
+		
+		
+		
 		guardarArchivo(textCodigo.toString(),path.getPath() , s.getName());
 		
 	}
@@ -65,20 +77,41 @@ public class TransformationM2T_SQL {
 	private String crearTables(Table t) {
 		String table ="";
 		table+="CREATE TABLE " + t.getName() +" (\n";
-		
-		for(Column c : t.getLstColumns())
+		int variables = t.getLstColumns().size()+t.getLstForeignKeys().size()+t.getLstPrimaryKeys().size();
+		int cont=0;
+		for(Column c : t.getLstColumns()) {
+			System.out.println(cont + ", " + variables);
+			if(cont==variables-1)
+			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+"\n";
+			else {
 			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+			cont++;
+			}
+		}
 		
-		for(PrimaryKey c : t.getLstPrimaryKeys())
-			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+		for(PrimaryKey c : t.getLstPrimaryKeys()) {
+			if(cont==variables-1)
+				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+"\n";
+				else {
+				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+				cont++;
+				}
+		}
 		
-		for(ForeignKey c : t.getLstForeignKeys())
-			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+		for(ForeignKey c : t.getLstForeignKeys()) {
+			if(cont==variables-1)
+				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+"\n";
+				else {
+				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+				cont++;
+				}
+		}
+		
 		
 		table+=");\n\n";
 		
 		for(PrimaryKey pk : t.getLstPrimaryKeys())
-			table+="ALTER TABLE " + t.getName() + " ADD CONSTRAINT " + pk.getName()+"pk" + " PRIMARY KEY ( "+ pk.getName() +" ); \n\n";
+			table+="ALTER TABLE " + t.getName() + " ADD CONSTRAINT " +"pk"+ pk.getName() + " PRIMARY KEY ( "+ pk.getName() +" ); \n\n";
 		
 		return table;
 	}
@@ -86,31 +119,62 @@ public class TransformationM2T_SQL {
 	
 	private String crearForeignKey(ForeignKey fk, Table t) {
 		String f ="ALTER TABLE " +t.getName() +"\n";
-		f+= "\tADD CONSTRAINT " + fk.getName()+"fk" + " FOREIGN ( " + fk.getName() + " ) \n";
+		f+= "\tADD CONSTRAINT " +"fk" + fk.getName()+ " FOREIGN ( " + fk.getName() + " ) \n";
 		f+= "\t\tREFERENCES " + fk.getReferPrimaryKey().getTable()+ " ( " + fk.getReferPrimaryKey().getName() + " ); \n";
 		
 		
 		return f;
 	}
 	
+	private String crearTriggersInsert(Table t){
+		
+		String trigger ="\n";
+		trigger+= "CREATE OR REPLACE TRIGGER " + "d_" + t.getName()+"Insert\n";
+		
+		trigger+="\tBEFORE INSERT\n";
+		trigger+="\t\tON " + t.getName()+"\n";
+		trigger+="BEGIN\n";
+		trigger+="\tNULL\n";
+		trigger+="END;\n";
+		
+		  return trigger;
+	}
+	
+	private String crearTriggersUpdate(Table t){
+		
+		String trigger ="\n";
+		trigger+= "CREATE OR REPLACE TRIGGER " + "d_" + t.getName()+"Update\n";
+		
+		trigger+="\tBEFORE UPDATE\n";
+		trigger+="\t\tON " + t.getName()+"\n";
+		trigger+="BEGIN\n";
+		trigger+="\tNULL\n";
+		trigger+="END;\n";
+		
+		  return trigger;
+	}
+	
+	private String crearTriggersDelete(Table t){
+		
+		String trigger ="\n";
+		trigger+= "CREATE OR REPLACE TRIGGER " + "d_" + t.getName()+"Delete\n";
+		
+		trigger+="\tBEFORE DELETE\n";
+		trigger+="\t\tON " + t.getName()+"\n";
+		trigger+="BEGIN\n";
+		trigger+="\tNULL\n";
+		trigger+="END;\n";
+		
+		  return trigger;
+	}
+	
 	private void guardarArchivo(String cadena, String ruta , String nombre) {
-		try
-		{
-			//Crear un objeto File se encarga de crear o abrir acceso a un archivo que se especifica en su constructor
-			
+		try{
 			File archivo=new File(ruta);
-			//Crear objeto FileWriter que sera el que nos ayude a escribir sobre archivo
 			FileWriter escribir=new FileWriter(archivo+"/"+nombre+".txt",true);
-			//Escribimos en el archivo con el metodo write 
 			escribir.write(cadena);
-
-			//Cerramos la conexion
 			escribir.close();
-		}
-
-		//Si existe un problema al escribir cae aqui
-		catch(Exception e)
-		{
+		}catch(Exception e){
 			System.out.println("Error al Guardar");
 		}
 
