@@ -14,8 +14,10 @@ import concrete.MInheritance;
 import concrete.MPackage;
 import concrete.ModelFactory;
 
+import concrete.Type;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -90,6 +92,13 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 	 * @generated
 	 */
 	private EClass mFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -468,8 +477,18 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMAttribute_ForeignKey() {
+	public EAttribute getMAttribute_Size() {
 		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMAttribute_ForeignKey() {
+		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -708,6 +727,16 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 	 * @generated
 	 */
 	@Override
+	public EEnum getType() {
+		return typeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ConcreteFactory getConcreteFactory() {
 		return (ConcreteFactory)getEFactoryInstance();
 	}
@@ -766,6 +795,7 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 		createEAttribute(mAttributeEClass, MATTRIBUTE__PRIMARY_KEY);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__NULLABLE);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__TYPE);
+		createEAttribute(mAttributeEClass, MATTRIBUTE__SIZE);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__FOREIGN_KEY);
 
 		mAssociationEClass = createEClass(MASSOCIATION);
@@ -794,6 +824,9 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 		createEAttribute(mFunctionEClass, MFUNCTION__SEMANTICS);
 		createEAttribute(mFunctionEClass, MFUNCTION__COMMENTS);
 		createEAttribute(mFunctionEClass, MFUNCTION__PARAMETERS);
+
+		// Create enums
+		typeEEnum = createEEnum(TYPE);
 	}
 
 	/**
@@ -860,7 +893,8 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 		initEAttribute(getMAttribute_RemoveToInit(), ecorePackage.getEBoolean(), "removeToInit", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_PrimaryKey(), ecorePackage.getEBoolean(), "primaryKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_Type(), this.getType(), "type", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_Size(), ecorePackage.getEString(), "size", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_ForeignKey(), ecorePackage.getEBoolean(), "foreignKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mAssociationEClass, MAssociation.class, "MAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -889,6 +923,15 @@ public class ConcretePackageImpl extends EPackageImpl implements ConcretePackage
 		initEAttribute(getMFunction_Semantics(), ecorePackage.getEString(), "semantics", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMFunction_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMFunction_Parameters(), ecorePackage.getEString(), "parameters", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(typeEEnum, Type.class, "Type");
+		addEEnumLiteral(typeEEnum, Type.NUMERIC);
+		addEEnumLiteral(typeEEnum, Type.VARCHAR);
+		addEEnumLiteral(typeEEnum, Type.BOOLEAN);
+		addEEnumLiteral(typeEEnum, Type.INTEGER);
+		addEEnumLiteral(typeEEnum, Type.DATE);
+		addEEnumLiteral(typeEEnum, Type.YEAR);
 
 		// Create resource
 		createResource(eNS_URI);

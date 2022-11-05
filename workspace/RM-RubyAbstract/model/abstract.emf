@@ -66,10 +66,20 @@ class MAttribute{
 	attr boolean removeToInit;
 	attr boolean primaryKey;
 	attr boolean nullable;
-	attr String type;
+    attr Type type;
+    attr String size;
 	attr boolean foreignKey;
 }
 
+
+enum Type {
+  NUMERIC=1;
+  VARCHAR=2;
+  BOOLEAN=3;
+  INTEGER=4;
+  DATE=5;
+  YEAR=6;
+}
 class MFunction{
 	attr String name;
 	attr String accessModifier; 

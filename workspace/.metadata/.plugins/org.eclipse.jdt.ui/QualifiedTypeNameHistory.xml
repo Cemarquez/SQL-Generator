@@ -12,9 +12,13 @@
     <fullyQualifiedTypeName name="abstracts.MContainment"/>
     <fullyQualifiedTypeName name="abstracts.MAttribute"/>
     <fullyQualifiedTypeName name="abstracts.MAssociation"/>
-    <fullyQualifiedTypeName name="sql_abstracts.Table"/>
     <fullyQualifiedTypeName name="sql_abstracts.Sql_abstractsFactory"/>
     <fullyQualifiedTypeName name="sql_abstracts.Schema"/>
-    <fullyQualifiedTypeName name="sql_abstracts.PrimaryKey"/>
     <fullyQualifiedTypeName name="sql_abstracts.ForeignKey"/>
+    <fullyQualifiedTypeName name="abstracts.MInheritance"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Table"/>
+    <fullyQualifiedTypeName name="sql_abstracts.PrimaryKey"/>
+    <fullyQualifiedTypeName name="sql_abstracts.Type"/>
+    <fullyQualifiedTypeName name="abstracts.Type"/>
 </qualifiedTypeNameHistroy>

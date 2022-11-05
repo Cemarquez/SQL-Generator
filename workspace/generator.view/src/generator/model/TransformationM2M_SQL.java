@@ -11,6 +11,7 @@ import sql_abstracts.PrimaryKey;
 import sql_abstracts.Schema;
 import sql_abstracts.Sql_abstractsFactory;
 import sql_abstracts.Table;
+import sql_abstracts.Type;
 
 public class TransformationM2M_SQL {
 
@@ -56,14 +57,16 @@ public class TransformationM2M_SQL {
 			if(!a.isForeignKey()) {
 				if(!a.isPrimaryKey()) {
 					Column c = Sql_abstractsFactory.eINSTANCE.createColumn();
-					c.setType(a.getType());
+					c.setType(Type.getByName(a.getType().toString()));
+					c.setSize(a.getSize());
 					c.setName(a.getName());
 					c.setNullable(a.isNullable());
 					c.setComments(a.getComments());
 					t.getLstColumns().add(c);
 				}else {
 					PrimaryKey c = Sql_abstractsFactory.eINSTANCE.createPrimaryKey();
-					c.setType(a.getType());
+					c.setType(Type.getByName(a.getType().toString()));
+					c.setSize(a.getSize());
 					c.setName(a.getName());
 					c.setNullable(false);
 					c.setTable(t.getName());
@@ -106,6 +109,7 @@ public class TransformationM2M_SQL {
 						f.setName(at.getName());
 						f.setNullable(at.isNullable());
 						f.setType(pk.getType());
+						f.setSize(pk.getSize());
 						f.setReferPrimaryKey(pk);
 						pk.getLstReferForeignKeys().add(f);
 						tTarget.getLstForeignKeys().add(f);
@@ -127,7 +131,8 @@ public class TransformationM2M_SQL {
 					PrimaryKey pk = Sql_abstractsFactory.eINSTANCE.createPrimaryKey();
 					pk.setName(at.getName());
 					pk.setTable(a.getTarget().getName());
-					pk.setType(at.getType());
+					pk.setType(Type.getByName(at.getType().toString()));
+					pk.setSize(at.getSize());
 					pk.setNullable(false);
 					t.getLstPrimaryKeys().add(pk);
 					
@@ -137,13 +142,15 @@ public class TransformationM2M_SQL {
 					f.setName(at.getName());
 					f.setNullable(at.isNullable());
 					f.setType(pk.getType());
+					f.setSize(pk.getSize());
 					f.setReferPrimaryKey(pk);
 					pk.getLstReferForeignKeys().add(f);
 					t.getLstForeignKeys().add(f);
 					
 				}else {
 					Column c = Sql_abstractsFactory.eINSTANCE.createColumn();
-					c.setType(at.getType());
+					c.setType(Type.getByName(at.getType().toString()));
+					c.setSize(at.getSize());
 					c.setName(at.getName());
 					c.setNullable(at.isNullable());
 					c.setComments(at.getComments());
@@ -156,7 +163,8 @@ public class TransformationM2M_SQL {
 					PrimaryKey pk = Sql_abstractsFactory.eINSTANCE.createPrimaryKey();
 					pk.setName(at.getName());
 					pk.setTable(a.getTarget().getName());
-					pk.setType(at.getType());
+					pk.setType(Type.getByName(at.getType().toString()));
+					pk.setSize(at.getSize());
 					pk.setNullable(false);
 					t.getLstPrimaryKeys().add(pk);
 					
@@ -166,13 +174,15 @@ public class TransformationM2M_SQL {
 					f.setName(at.getName());
 					f.setNullable(at.isNullable());
 					f.setType(pk.getType());
+					f.setSize(pk.getSize());
 					f.setReferPrimaryKey(pk);
 					pk.getLstReferForeignKeys().add(f);
 					t.getLstForeignKeys().add(f);
 					
 				}else {
 					Column c = Sql_abstractsFactory.eINSTANCE.createColumn();
-					c.setType(at.getType());
+					c.setType(Type.getByName(at.getType().toString()));
+					c.setSize(at.getSize());
 					c.setName(at.getName());
 					c.setNullable(at.isNullable());
 					c.setComments(at.getComments());
@@ -191,7 +201,7 @@ public class TransformationM2M_SQL {
 			pk.setName(t.getName()+"_ID");
 			pk.setNullable(false);
 			pk.setTable(t.getName());
-			pk.setType("NUMBER");
+			pk.setType(Type.NUMERIC);
 			PrimaryKey pkOrigen=null;
 			PrimaryKey pkDestino=null;
 			
@@ -212,12 +222,14 @@ public class TransformationM2M_SQL {
 			fkOrigen.setNullable(true);
 			fkOrigen.setReferPrimaryKey(pkOrigen);
 			fkOrigen.setType(pkOrigen.getType());
+			fkOrigen.setSize(pkOrigen.getSize());
 			
 			ForeignKey fkDestino = Sql_abstractsFactory.eINSTANCE.createForeignKey();
 			fkDestino.setName(pkDestino.getName());
 			fkDestino.setNullable(true);
 			fkDestino.setReferPrimaryKey(pkDestino);
 			fkDestino.setType(pkDestino.getType());
+			fkDestino.setSize(pkDestino.getSize());
 			
 			t.getLstPrimaryKeys().add(pk);
 			t.getLstForeignKeys().add(fkDestino);

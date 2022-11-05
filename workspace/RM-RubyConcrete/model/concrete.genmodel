@@ -5,6 +5,14 @@
     copyrightFields="false">
   <foreignModel>concrete.emf</foreignModel>
   <genPackages prefix="Concrete" disposableProviderFactory="true" ecorePackage="concrete.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="concrete.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="concrete.ecore#//Type/NUMERIC"/>
+      <genEnumLiterals ecoreEnumLiteral="concrete.ecore#//Type/VARCHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="concrete.ecore#//Type/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="concrete.ecore#//Type/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="concrete.ecore#//Type/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="concrete.ecore#//Type/YEAR"/>
+    </genEnums>
     <genClasses ecoreClass="concrete.ecore#//ModelFactory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//ModelFactory/nombre"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//ModelFactory/ruta"/>
@@ -40,6 +48,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/primaryKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/nullable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute concrete.ecore#//MAttribute/foreignKey"/>
     </genClasses>
     <genClasses ecoreClass="concrete.ecore#//MAssociation">

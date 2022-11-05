@@ -1,0 +1,78 @@
+#
+
+pluginName = RM-RubyAbstract Edit Support
+providerName = www.example.org
+
+_UI_CreateChild_text = {0}
+_UI_CreateChild_text2 = {1} {0}
+_UI_CreateChild_text3 = {1}
+_UI_CreateChild_tooltip = Create New {0} Under {1} Feature
+_UI_CreateChild_description = Create a new child of type {0} for the {1} feature of the selected {2}.
+_UI_CreateSibling_description = Create a new sibling of type {0} for the selected {2}, under the {1} feature of their parent.
+
+_UI_PropertyDescriptor_description = The {0} of the {1}
+
+_UI_ModelFactory_type = Model Factory
+_UI_MPackage_type = MPackage
+_UI_MClassDiagram_type = MClass Diagram
+_UI_MClass_type = MClass
+_UI_MAssociation_type = MAssociation
+_UI_MInheritance_type = MInheritance
+_UI_MContainment_type = MContainment
+_UI_MAttribute_type = MAttribute
+_UI_MFunction_type = MFunction
+_UI_Unknown_type = Object
+
+_UI_Unknown_datatype= Value
+
+_UI_ModelFactory_nombre_feature = Nombre
+_UI_ModelFactory_ruta_feature = Ruta
+_UI_ModelFactory_lstPackages_feature = Lst Packages
+_UI_ModelFactory_lstAllClass_feature = Lst All Class
+_UI_ModelFactory_lstAllPackage_feature = Lst All Package
+_UI_MPackage_name_feature = Name
+_UI_MPackage_path_feature = Path
+_UI_MPackage_lstMClass_feature = Lst MClass
+_UI_MPackage_lstMPackage_feature = Lst MPackage
+_UI_MClassDiagram_name_feature = Name
+_UI_MClassDiagram_lstMPackage_feature = Lst MPackage
+_UI_MClassDiagram_lstMClass_feature = Lst MClass
+_UI_MClass_name_feature = Name
+_UI_MClass_accessModifier_feature = Access Modifier
+_UI_MClass_comments_feature = Comments
+_UI_MClass_path_feature = Path
+_UI_MClass_lstMAssoctiation_feature = Lst MAssoctiation
+_UI_MClass_lstMInheritance_feature = Lst MInheritance
+_UI_MClass_lstMContainment_feature = Lst MContainment
+_UI_MClass_lstAttributes_feature = Lst Attributes
+_UI_MClass_lstFunction_feature = Lst Function
+_UI_MAssociation_source_feature = Source
+_UI_MAssociation_target_feature = Target
+_UI_MAssociation_relationshipType_feature = Relationship Type
+_UI_MAssociation_multiplicitySource_feature = Multiplicity Source
+_UI_MAssociation_multiplicityTarget_feature = Multiplicity Target
+_UI_MAssociation_sourceRole_feature = Source Role
+_UI_MAssociation_targetRole_feature = Target Role
+_UI_MInheritance_source_feature = Source
+_UI_MInheritance_target_feature = Target
+_UI_MContainment_source_feature = Source
+_UI_MContainment_target_feature = Target
+_UI_MContainment_multiplicityTarget_feature = Multiplicity Target
+_UI_MContainment_sourceRole_feature = Source Role
+_UI_MContainment_targetRole_feature = Target Role
+_UI_MAttribute_name_feature = Name
+_UI_MAttribute_defaultValue_feature = Default Value
+_UI_MAttribute_comments_feature = Comments
+_UI_MAttribute_constant_feature = Constant
+_UI_MAttribute_removeToInit_feature = Remove To Init
+_UI_MFunction_name_feature = Name
+_UI_MFunction_accessModifier_feature = Access Modifier
+_UI_MFunction_semantics_feature = Semantics
+_UI_MFunction_comments_feature = Comments
+_UI_MFunction_parameters_feature = Parameters
+_UI_Unknown_feature = Unspecified
+
+_UI_MAttribute_primaryKey_feature = Primary Key
+_UI_MAttribute_nullable_feature = Nullable
+_UI_MAttribute_type_feature = Type
+_UI_MAttribute_foreignKey_feature = Foreign Key

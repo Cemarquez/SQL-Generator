@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link concrete.MAttribute#isPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link concrete.MAttribute#isNullable <em>Nullable</em>}</li>
  *   <li>{@link concrete.MAttribute#getType <em>Type</em>}</li>
+ *   <li>{@link concrete.MAttribute#getSize <em>Size</em>}</li>
  *   <li>{@link concrete.MAttribute#isForeignKey <em>Foreign Key</em>}</li>
  * </ul>
  *
@@ -185,25 +186,50 @@ public interface MAttribute extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link concrete.Type}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
+	 * @see concrete.Type
+	 * @see #setType(Type)
 	 * @see concrete.ConcretePackage#getMAttribute_Type()
 	 * @model
 	 * @generated
 	 */
-	String getType();
+	Type getType();
 
 	/**
 	 * Sets the value of the '{@link concrete.MAttribute#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see concrete.Type
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(String value);
+	void setType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Size</em>' attribute.
+	 * @see #setSize(String)
+	 * @see concrete.ConcretePackage#getMAttribute_Size()
+	 * @model
+	 * @generated
+	 */
+	String getSize();
+
+	/**
+	 * Sets the value of the '{@link concrete.MAttribute#getSize <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Size</em>' attribute.
+	 * @see #getSize()
+	 * @generated
+	 */
+	void setSize(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Foreign Key</b></em>' attribute.

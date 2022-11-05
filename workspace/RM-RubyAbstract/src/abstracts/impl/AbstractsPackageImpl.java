@@ -14,8 +14,10 @@ import abstracts.MInheritance;
 import abstracts.MPackage;
 import abstracts.ModelFactory;
 
+import abstracts.Type;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -90,6 +92,13 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 	 * @generated
 	 */
 	private EClass mFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -668,8 +677,18 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMAttribute_ForeignKey() {
+	public EAttribute getMAttribute_Size() {
 		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMAttribute_ForeignKey() {
+		return (EAttribute)mAttributeEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -730,6 +749,16 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 	@Override
 	public EAttribute getMFunction_Parameters() {
 		return (EAttribute)mFunctionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getType() {
+		return typeEEnum;
 	}
 
 	/**
@@ -819,6 +848,7 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 		createEAttribute(mAttributeEClass, MATTRIBUTE__PRIMARY_KEY);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__NULLABLE);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__TYPE);
+		createEAttribute(mAttributeEClass, MATTRIBUTE__SIZE);
 		createEAttribute(mAttributeEClass, MATTRIBUTE__FOREIGN_KEY);
 
 		mFunctionEClass = createEClass(MFUNCTION);
@@ -827,6 +857,9 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 		createEAttribute(mFunctionEClass, MFUNCTION__SEMANTICS);
 		createEAttribute(mFunctionEClass, MFUNCTION__COMMENTS);
 		createEAttribute(mFunctionEClass, MFUNCTION__PARAMETERS);
+
+		// Create enums
+		typeEEnum = createEEnum(TYPE);
 	}
 
 	/**
@@ -916,7 +949,8 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 		initEAttribute(getMAttribute_RemoveToInit(), ecorePackage.getEBoolean(), "removeToInit", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_PrimaryKey(), ecorePackage.getEBoolean(), "primaryKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_Type(), this.getType(), "type", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMAttribute_Size(), ecorePackage.getEString(), "size", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMAttribute_ForeignKey(), ecorePackage.getEBoolean(), "foreignKey", null, 0, 1, MAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mFunctionEClass, MFunction.class, "MFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -925,6 +959,15 @@ public class AbstractsPackageImpl extends EPackageImpl implements AbstractsPacka
 		initEAttribute(getMFunction_Semantics(), ecorePackage.getEString(), "semantics", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMFunction_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMFunction_Parameters(), ecorePackage.getEString(), "parameters", null, 0, 1, MFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(typeEEnum, Type.class, "Type");
+		addEEnumLiteral(typeEEnum, Type.NUMERIC);
+		addEEnumLiteral(typeEEnum, Type.VARCHAR);
+		addEEnumLiteral(typeEEnum, Type.BOOLEAN);
+		addEEnumLiteral(typeEEnum, Type.INTEGER);
+		addEEnumLiteral(typeEEnum, Type.DATE);
+		addEEnumLiteral(typeEEnum, Type.YEAR);
 
 		// Create resource
 		createResource(eNS_URI);

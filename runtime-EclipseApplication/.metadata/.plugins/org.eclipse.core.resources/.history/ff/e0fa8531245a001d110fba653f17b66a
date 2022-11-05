@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concrete:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:concrete="concrete">
+  <lstMDiagrams name="Colegio">
+    <lstMPackage name="Colegio"/>
+    <lstMClass name="Profesor" path="Colegio">
+      <lstMAttribute name="Prof_ID" comments="" primaryKey="true"/>
+      <lstMAttribute name="Nombre" nullable="true" type="VARCHAR" size="200"/>
+      <lstMAttribute name="Depto_ID" nullable="true" foreignKey="true"/>
+    </lstMClass>
+    <lstMClass name="Curso" path="Colegio">
+      <lstMAttribute name="Curso_ID" primaryKey="true"/>
+      <lstMAttribute name="Prof_ID" nullable="true" foreignKey="true"/>
+    </lstMClass>
+    <lstMClass name="Depto" path="Colegio">
+      <lstMAttribute name="Depto_ID" primaryKey="true"/>
+    </lstMClass>
+    <lstMAssoctiation source="//@lstMDiagrams.0/@lstMClass.0" target="//@lstMDiagrams.0/@lstMClass.1" multiplicitySource="n" multiplicityTarget="n" sourceRole="lstProfesor" targetRole="lstCurso"/>
+    <lstMContainment source="//@lstMDiagrams.0/@lstMClass.2" target="//@lstMDiagrams.0/@lstMClass.0" multiplicityTarget="m" sourceRole="theDepto" targetRole="lstProfesor"/>
+  </lstMDiagrams>
+</concrete:ModelFactory>

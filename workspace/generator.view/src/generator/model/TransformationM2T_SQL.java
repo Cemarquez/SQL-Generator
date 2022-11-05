@@ -79,30 +79,54 @@ public class TransformationM2T_SQL {
 		table+="CREATE TABLE " + t.getName() +" (\n";
 		int variables = t.getLstColumns().size()+t.getLstForeignKeys().size()+t.getLstPrimaryKeys().size();
 		int cont=0;
+		String nullable="";
+		String size ="";
 		for(Column c : t.getLstColumns()) {
-			System.out.println(cont + ", " + variables);
+			nullable="";
+			if(!c.isNullable()) 
+				nullable = " NOT NULL";
+			
+			if(c.getSize() != null)
+				size = "("+c.getSize()+")";
+			
 			if(cont==variables-1)
-			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+"\n";
+			table+="\t" + c.getName() + "\t" + c.getType().toString().toUpperCase()+size+ nullable+"\n";
 			else {
-			table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+			table+="\t" + c.getName() + "\t" + c.getType().toString().toUpperCase()+size+ nullable+",\n";
 			cont++;
 			}
 		}
 		
 		for(PrimaryKey c : t.getLstPrimaryKeys()) {
+			nullable="";
+			size ="";
+			if(!c.isNullable())
+				nullable = " NOT NULL";
+			
+			if(c.getSize() != null)
+				size = "("+c.getSize()+")";
+			
 			if(cont==variables-1)
-				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+"\n";
+				table+="\t" + c.getName() + "\t" + c.getType().toString().toUpperCase()+size+ nullable+"\n";
 				else {
-				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+				table+="\t" + c.getName() + "\t" + c.getType().toString().toUpperCase()+size+ nullable+",\n";
 				cont++;
 				}
 		}
 		
 		for(ForeignKey c : t.getLstForeignKeys()) {
+			nullable="";
+			size ="";
+			if(!c.isNullable()) 
+				nullable = " NOT NULL";
+			
+			if(c.getSize() != null)
+				size = "("+c.getSize()+")";
+			
 			if(cont==variables-1)
-				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+"\n";
+				table+="\t" + c.getName() + "\t" + c.getType().toString().toUpperCase()+size+ nullable+"\n";
 				else {
-				table+="\t" + c.getName() + "\t" + c.getType().toUpperCase()+",\n";
+				table+="\t" + c.getName() + "\t" + c.getType().toString().toUpperCase()+size+ nullable+",\n";
 				cont++;
 				}
 		}
@@ -119,7 +143,7 @@ public class TransformationM2T_SQL {
 	
 	private String crearForeignKey(ForeignKey fk, Table t) {
 		String f ="ALTER TABLE " +t.getName() +"\n";
-		f+= "\tADD CONSTRAINT " +"fk" + fk.getName()+ " FOREIGN ( " + fk.getName() + " ) \n";
+		f+= "\tADD CONSTRAINT " +"fk" + fk.getName()+ " FOREIGN KEY ( " + fk.getName() + " ) \n";
 		f+= "\t\tREFERENCES " + fk.getReferPrimaryKey().getTable()+ " ( " + fk.getReferPrimaryKey().getName() + " ); \n";
 		
 		
@@ -129,12 +153,11 @@ public class TransformationM2T_SQL {
 	private String crearTriggersInsert(Table t){
 		
 		String trigger ="\n";
-		trigger+= "CREATE OR REPLACE TRIGGER " + "d_" + t.getName()+"Insert\n";
+		trigger+= "CREATE TRIGGER " + "d_" + t.getName()+"Insert\n";
 		
 		trigger+="\tBEFORE INSERT\n";
-		trigger+="\t\tON " + t.getName()+"\n";
-		trigger+="BEGIN\n";
-		trigger+="\tNULL\n";
+		trigger+="\t\tON " + t.getName()+" FOR EACH ROW\n";
+		trigger+="BEGIN\n\n";
 		trigger+="END;\n";
 		
 		  return trigger;
@@ -143,12 +166,11 @@ public class TransformationM2T_SQL {
 	private String crearTriggersUpdate(Table t){
 		
 		String trigger ="\n";
-		trigger+= "CREATE OR REPLACE TRIGGER " + "d_" + t.getName()+"Update\n";
+		trigger+= "CREATE TRIGGER " + "d_" + t.getName()+"Update\n";
 		
 		trigger+="\tBEFORE UPDATE\n";
-		trigger+="\t\tON " + t.getName()+"\n";
-		trigger+="BEGIN\n";
-		trigger+="\tNULL\n";
+		trigger+="\t\tON " + t.getName()+" FOR EACH ROW\n";
+		trigger+="BEGIN\n\n";
 		trigger+="END;\n";
 		
 		  return trigger;
@@ -157,12 +179,11 @@ public class TransformationM2T_SQL {
 	private String crearTriggersDelete(Table t){
 		
 		String trigger ="\n";
-		trigger+= "CREATE OR REPLACE TRIGGER " + "d_" + t.getName()+"Delete\n";
+		trigger+= "CREATE TRIGGER " + "d_" + t.getName()+"Delete\n";
 		
 		trigger+="\tBEFORE DELETE\n";
-		trigger+="\t\tON " + t.getName()+"\n";
-		trigger+="BEGIN\n";
-		trigger+="\tNULL\n";
+		trigger+="\t\tON " + t.getName()+" FOR EACH ROW\n";
+		trigger+="BEGIN\n\n";
 		trigger+="END;\n";
 		
 		  return trigger;

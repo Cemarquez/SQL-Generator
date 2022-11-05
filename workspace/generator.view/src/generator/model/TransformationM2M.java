@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import abstracts.AbstractsFactory;
+import abstracts.Type;
 
 public class TransformationM2M {
 	private abstracts.ModelFactory modelFactoryAbstracta;
@@ -183,7 +184,11 @@ public class TransformationM2M {
 			newAttribute.setDefaultValue(a.getDefaultValue());
 			newAttribute.setName(a.getName());
 			newAttribute.setRemoveToInit(a.isRemoveToInit());
-			newAttribute.setType(a.getType());
+			newAttribute.setType(Type.getByName(a.getType().toString()));
+			if(newAttribute.getType() == Type.NUMERIC)
+				newAttribute.setSize(null);
+			else
+				newAttribute.setSize(a.getSize());
 			newAttribute.setPrimaryKey(a.isPrimaryKey());
 			newAttribute.setNullable(a.isNullable());
 			newAttribute.setForeignKey(a.isForeignKey());

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sql_abstracts:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sql_abstracts="http://sql_abstracts">
+  <lstSchema name="Colegio">
+    <lstTables name="Profesor">
+      <lstColumns name="Nombre" type="VARCHAR" size="200" nullable="true"/>
+      <lstPrimaryKeys name="Prof_ID" size="" table="Profesor"/>
+      <lstForeignKeys name="Depto_ID" referPrimaryKey="//@lstSchema.0/@lstTables.2/@lstPrimaryKeys.0" nullable="true"/>
+    </lstTables>
+    <lstTables name="Curso">
+      <lstPrimaryKeys name="Curso_ID" size="" table="Curso"/>
+    </lstTables>
+    <lstTables name="Depto">
+      <lstPrimaryKeys name="Depto_ID" size="" lstReferForeignKeys="//@lstSchema.0/@lstTables.0/@lstForeignKeys.0" table="Depto"/>
+    </lstTables>
+    <lstTables name="ProfesorCurso">
+      <lstPrimaryKeys name="ProfesorCurso_ID" table="ProfesorCurso"/>
+      <lstForeignKeys name="Curso_ID" referPrimaryKey="//@lstSchema.0/@lstTables.1/@lstPrimaryKeys.0" nullable="true" size=""/>
+      <lstForeignKeys name="Prof_ID" referPrimaryKey="//@lstSchema.0/@lstTables.0/@lstPrimaryKeys.0" nullable="true" size=""/>
+    </lstTables>
+  </lstSchema>
+</sql_abstracts:ModelFactory>

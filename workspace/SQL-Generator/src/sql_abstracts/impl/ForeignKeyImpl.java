@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import sql_abstracts.ForeignKey;
 import sql_abstracts.PrimaryKey;
 import sql_abstracts.Sql_abstractsPackage;
+import sql_abstracts.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,7 @@ import sql_abstracts.Sql_abstractsPackage;
  *   <li>{@link sql_abstracts.impl.ForeignKeyImpl#getReferPrimaryKey <em>Refer Primary Key</em>}</li>
  *   <li>{@link sql_abstracts.impl.ForeignKeyImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link sql_abstracts.impl.ForeignKeyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link sql_abstracts.impl.ForeignKeyImpl#getSize <em>Size</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,7 +67,7 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TYPE_EDEFAULT = null;
+	protected static final Type TYPE_EDEFAULT = Type.NUMERIC;
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,7 +76,27 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 	 * @generated
 	 * @ordered
 	 */
-	protected String type = TYPE_EDEFAULT;
+	protected Type type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SIZE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected String size = SIZE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,7 +186,7 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 	 * @generated
 	 */
 	@Override
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -174,11 +196,34 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 	 * @generated
 	 */
 	@Override
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
+	public void setType(Type newType) {
+		Type oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.FOREIGN_KEY__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getSize() {
+		return size;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSize(String newSize) {
+		String oldSize = size;
+		size = newSize;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.FOREIGN_KEY__SIZE, oldSize, size));
 	}
 
 	/**
@@ -196,6 +241,8 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 				return isNullable();
 			case Sql_abstractsPackage.FOREIGN_KEY__TYPE:
 				return getType();
+			case Sql_abstractsPackage.FOREIGN_KEY__SIZE:
+				return getSize();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,7 +262,10 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 				setNullable((Boolean)newValue);
 				return;
 			case Sql_abstractsPackage.FOREIGN_KEY__TYPE:
-				setType((String)newValue);
+				setType((Type)newValue);
+				return;
+			case Sql_abstractsPackage.FOREIGN_KEY__SIZE:
+				setSize((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,6 +288,9 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 			case Sql_abstractsPackage.FOREIGN_KEY__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case Sql_abstractsPackage.FOREIGN_KEY__SIZE:
+				setSize(SIZE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,7 +308,9 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 			case Sql_abstractsPackage.FOREIGN_KEY__NULLABLE:
 				return nullable != NULLABLE_EDEFAULT;
 			case Sql_abstractsPackage.FOREIGN_KEY__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != TYPE_EDEFAULT;
+			case Sql_abstractsPackage.FOREIGN_KEY__SIZE:
+				return SIZE_EDEFAULT == null ? size != null : !SIZE_EDEFAULT.equals(size);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -274,6 +329,8 @@ public class ForeignKeyImpl extends ModelElementImpl implements ForeignKey {
 		result.append(nullable);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", size: ");
+		result.append(size);
 		result.append(')');
 		return result.toString();
 	}

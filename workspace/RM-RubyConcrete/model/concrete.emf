@@ -48,10 +48,22 @@ class MAttribute{
 	attr boolean removeToInit;
 	attr boolean primaryKey;
 	attr boolean nullable;
-	attr String type;
+	attr Type type;
+    attr String size;
 	attr boolean foreignKey;
 	
 }
+
+
+enum Type {
+  NUMERIC=1;
+  VARCHAR=2;
+  BOOLEAN=3;
+  INTEGER=4;
+  DATE=5;
+  YEAR=6;
+}
+
 @gmf.link(source = "source", target = "target", style = "solid", width = "1", color="255,0,0")
 class MAssociation{
 	ref MClass source;

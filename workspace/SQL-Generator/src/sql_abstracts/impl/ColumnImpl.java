@@ -18,6 +18,7 @@ import sql_abstracts.Column;
 import sql_abstracts.ForeignKey;
 import sql_abstracts.PrimaryKey;
 import sql_abstracts.Sql_abstractsPackage;
+import sql_abstracts.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +29,7 @@ import sql_abstracts.Sql_abstractsPackage;
  * </p>
  * <ul>
  *   <li>{@link sql_abstracts.impl.ColumnImpl#getType <em>Type</em>}</li>
+ *   <li>{@link sql_abstracts.impl.ColumnImpl#getSize <em>Size</em>}</li>
  *   <li>{@link sql_abstracts.impl.ColumnImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link sql_abstracts.impl.ColumnImpl#getComments <em>Comments</em>}</li>
  * </ul>
@@ -43,7 +45,7 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TYPE_EDEFAULT = null;
+	protected static final Type TYPE_EDEFAULT = Type.NUMERIC;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -53,7 +55,27 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @generated
 	 * @ordered
 	 */
-	protected String type = TYPE_EDEFAULT;
+	protected Type type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SIZE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected String size = SIZE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
@@ -120,7 +142,7 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @generated
 	 */
 	@Override
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -130,9 +152,9 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @generated
 	 */
 	@Override
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
+	public void setType(Type newType) {
+		Type oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.COLUMN__TYPE, oldType, type));
 	}
@@ -189,10 +211,35 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	 * @generated
 	 */
 	@Override
+	public String getSize() {
+		return size;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSize(String newSize) {
+		String oldSize = size;
+		size = newSize;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Sql_abstractsPackage.COLUMN__SIZE, oldSize, size));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case Sql_abstractsPackage.COLUMN__TYPE:
 				return getType();
+			case Sql_abstractsPackage.COLUMN__SIZE:
+				return getSize();
 			case Sql_abstractsPackage.COLUMN__NULLABLE:
 				return isNullable();
 			case Sql_abstractsPackage.COLUMN__COMMENTS:
@@ -211,7 +258,10 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Sql_abstractsPackage.COLUMN__TYPE:
-				setType((String)newValue);
+				setType((Type)newValue);
+				return;
+			case Sql_abstractsPackage.COLUMN__SIZE:
+				setSize((String)newValue);
 				return;
 			case Sql_abstractsPackage.COLUMN__NULLABLE:
 				setNullable((Boolean)newValue);
@@ -234,6 +284,9 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 			case Sql_abstractsPackage.COLUMN__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case Sql_abstractsPackage.COLUMN__SIZE:
+				setSize(SIZE_EDEFAULT);
+				return;
 			case Sql_abstractsPackage.COLUMN__NULLABLE:
 				setNullable(NULLABLE_EDEFAULT);
 				return;
@@ -253,7 +306,9 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case Sql_abstractsPackage.COLUMN__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != TYPE_EDEFAULT;
+			case Sql_abstractsPackage.COLUMN__SIZE:
+				return SIZE_EDEFAULT == null ? size != null : !SIZE_EDEFAULT.equals(size);
 			case Sql_abstractsPackage.COLUMN__NULLABLE:
 				return nullable != NULLABLE_EDEFAULT;
 			case Sql_abstractsPackage.COLUMN__COMMENTS:
@@ -274,6 +329,8 @@ public class ColumnImpl extends ModelElementImpl implements Column {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (type: ");
 		result.append(type);
+		result.append(", size: ");
+		result.append(size);
 		result.append(", nullable: ");
 		result.append(nullable);
 		result.append(", comments: ");

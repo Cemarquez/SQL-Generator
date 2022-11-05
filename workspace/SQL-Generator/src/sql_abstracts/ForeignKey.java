@@ -15,6 +15,7 @@ package sql_abstracts;
  *   <li>{@link sql_abstracts.ForeignKey#getReferPrimaryKey <em>Refer Primary Key</em>}</li>
  *   <li>{@link sql_abstracts.ForeignKey#isNullable <em>Nullable</em>}</li>
  *   <li>{@link sql_abstracts.ForeignKey#getType <em>Type</em>}</li>
+ *   <li>{@link sql_abstracts.ForeignKey#getSize <em>Size</em>}</li>
  * </ul>
  *
  * @see sql_abstracts.Sql_abstractsPackage#getForeignKey()
@@ -68,24 +69,49 @@ public interface ForeignKey extends ModelElement {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link sql_abstracts.Type}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see #setType(String)
+	 * @see sql_abstracts.Type
+	 * @see #setType(Type)
 	 * @see sql_abstracts.Sql_abstractsPackage#getForeignKey_Type()
 	 * @model
 	 * @generated
 	 */
-	String getType();
+	Type getType();
 
 	/**
 	 * Sets the value of the '{@link sql_abstracts.ForeignKey#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see sql_abstracts.Type
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(String value);
+	void setType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Size</em>' attribute.
+	 * @see #setSize(String)
+	 * @see sql_abstracts.Sql_abstractsPackage#getForeignKey_Size()
+	 * @model
+	 * @generated
+	 */
+	String getSize();
+
+	/**
+	 * Sets the value of the '{@link sql_abstracts.ForeignKey#getSize <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Size</em>' attribute.
+	 * @see #getSize()
+	 * @generated
+	 */
+	void setSize(String value);
 
 } // ForeignKey

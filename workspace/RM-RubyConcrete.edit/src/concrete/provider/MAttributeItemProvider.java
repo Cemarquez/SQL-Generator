@@ -68,6 +68,7 @@ public class MAttributeItemProvider
 			addPrimaryKeyPropertyDescriptor(object);
 			addNullablePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addSizePropertyDescriptor(object);
 			addForeignKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -250,6 +251,28 @@ public class MAttributeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Size feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MAttribute_size_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MAttribute_size_feature", "_UI_MAttribute_type"),
+				 ConcretePackage.Literals.MATTRIBUTE__SIZE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Foreign Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -317,6 +340,7 @@ public class MAttributeItemProvider
 			case ConcretePackage.MATTRIBUTE__PRIMARY_KEY:
 			case ConcretePackage.MATTRIBUTE__NULLABLE:
 			case ConcretePackage.MATTRIBUTE__TYPE:
+			case ConcretePackage.MATTRIBUTE__SIZE:
 			case ConcretePackage.MATTRIBUTE__FOREIGN_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

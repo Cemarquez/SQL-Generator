@@ -4,6 +4,7 @@ package concrete;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -377,13 +378,22 @@ public interface ConcretePackage extends EPackage {
 	int MATTRIBUTE__TYPE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATTRIBUTE__SIZE = 8;
+
+	/**
 	 * The feature id for the '<em><b>Foreign Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATTRIBUTE__FOREIGN_KEY = 8;
+	int MATTRIBUTE__FOREIGN_KEY = 9;
 
 	/**
 	 * The number of structural features of the '<em>MAttribute</em>' class.
@@ -392,7 +402,7 @@ public interface ConcretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATTRIBUTE_FEATURE_COUNT = 9;
+	int MATTRIBUTE_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link concrete.impl.MAssociationImpl <em>MAssociation</em>}' class.
@@ -640,6 +650,17 @@ public interface ConcretePackage extends EPackage {
 	 * @ordered
 	 */
 	int MFUNCTION_FEATURE_COUNT = 5;
+
+
+	/**
+	 * The meta object id for the '{@link concrete.Type <em>Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see concrete.Type
+	 * @see concrete.impl.ConcretePackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 9;
 
 
 	/**
@@ -979,6 +1000,17 @@ public interface ConcretePackage extends EPackage {
 	EAttribute getMAttribute_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link concrete.MAttribute#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see concrete.MAttribute#getSize()
+	 * @see #getMAttribute()
+	 * @generated
+	 */
+	EAttribute getMAttribute_Size();
+
+	/**
 	 * Returns the meta object for the attribute '{@link concrete.MAttribute#isForeignKey <em>Foreign Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1237,6 +1269,16 @@ public interface ConcretePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMFunction_Parameters();
+
+	/**
+	 * Returns the meta object for enum '{@link concrete.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Type</em>'.
+	 * @see concrete.Type
+	 * @generated
+	 */
+	EEnum getType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1519,6 +1561,14 @@ public interface ConcretePackage extends EPackage {
 		EAttribute MATTRIBUTE__TYPE = eINSTANCE.getMAttribute_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATTRIBUTE__SIZE = eINSTANCE.getMAttribute_Size();
+
+		/**
 		 * The meta object literal for the '<em><b>Foreign Key</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1717,6 +1767,16 @@ public interface ConcretePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MFUNCTION__PARAMETERS = eINSTANCE.getMFunction_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link concrete.Type <em>Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see concrete.Type
+		 * @see concrete.impl.ConcretePackageImpl#getType()
+		 * @generated
+		 */
+		EEnum TYPE = eINSTANCE.getType();
 
 	}
 

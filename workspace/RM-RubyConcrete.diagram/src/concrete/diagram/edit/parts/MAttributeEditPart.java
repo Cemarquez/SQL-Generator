@@ -8,6 +8,8 @@ import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.validation.internal.modeled.model.validation.EventTypesEnum;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -23,8 +25,10 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.swt.graphics.Color;
 
+import concrete.MAttribute;
 import concrete.diagram.edit.policies.MAttributeItemSemanticEditPolicy;
 import concrete.diagram.part.ConcreteVisualIDRegistry;
 
@@ -288,6 +292,13 @@ public class MAttributeEditPart extends ShapeNodeEditPart {
 
 	}
 
+	protected void handleNotificationEvent(Notification event) {
+		Object feature = event.getFeature();
+		NodeImpl node = (NodeImpl) this.getModel();
+		MAttribute model = (MAttribute) node.getElement();
+		System.out.println(node.getClass());
+		
+	}
 	/**
 	 * @generated
 	 */

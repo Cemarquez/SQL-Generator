@@ -5,6 +5,14 @@
     copyrightFields="false">
   <foreignModel>sql_abstracts.emf</foreignModel>
   <genPackages prefix="Sql_abstracts" disposableProviderFactory="true" ecorePackage="sql_abstracts.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sql_abstracts.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="sql_abstracts.ecore#//Type/NUMERIC"/>
+      <genEnumLiterals ecoreEnumLiteral="sql_abstracts.ecore#//Type/VARCHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="sql_abstracts.ecore#//Type/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="sql_abstracts.ecore#//Type/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="sql_abstracts.ecore#//Type/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="sql_abstracts.ecore#//Type/YEAR"/>
+    </genEnums>
     <genClasses ecoreClass="sql_abstracts.ecore#//ModelFactory">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sql_abstracts.ecore#//ModelFactory/lstSchema"/>
     </genClasses>
@@ -21,6 +29,7 @@
     </genClasses>
     <genClasses ecoreClass="sql_abstracts.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//Column/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//Column/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//Column/nullable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//Column/comments"/>
     </genClasses>
@@ -32,6 +41,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sql_abstracts.ecore#//ForeignKey/referPrimaryKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//ForeignKey/nullable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//ForeignKey/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sql_abstracts.ecore#//ForeignKey/size"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -21,7 +21,8 @@ class Table extends ModelElement{
 }
 
 class Column extends ModelElement{
-    attr String type;
+    attr Type type;
+    attr String size;
     attr boolean nullable;
     attr String comments;
 }
@@ -31,10 +32,23 @@ class PrimaryKey extends Column{
 	attr String table;
 }
 
+
+enum Type {
+  NUMERIC=1;
+  VARCHAR=2;
+  BOOLEAN=3;
+  INTEGER=4;
+  DATE=5;
+  YEAR=6;
+  
+  
+}
+
 class ForeignKey extends ModelElement{
     ref PrimaryKey referPrimaryKey;
     attr boolean nullable;
-    attr String type;
+    attr Type type;
+    attr String size;
 }
 
 

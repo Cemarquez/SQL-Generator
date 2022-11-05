@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<abstract:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:abstract="abstract" nombre="Colegio" lstAllClass="//@lstPackages.0/@lstMClass.0 //@lstPackages.0/@lstMClass.1 //@lstPackages.0/@lstMClass.2" lstAllPackage="//@lstPackages.0">
+  <lstPackages name="Colegio" path="">
+    <lstMClass name="Profesor" path="Colegio">
+      <lstMAssoctiation source="//@lstPackages.0/@lstMClass.0" target="//@lstPackages.0/@lstMClass.1" multiplicitySource="n" multiplicityTarget="n" sourceRole="lstProfesor" targetRole="lstCurso"/>
+      <lstMContainment source="//@lstPackages.0/@lstMClass.2" target="//@lstPackages.0/@lstMClass.0" multiplicityTarget="m" sourceRole="theDepto" targetRole="lstProfesor"/>
+      <lstAttributes name="Prof_ID" comments="" primaryKey="true" size=""/>
+      <lstAttributes name="Nombre" nullable="true" type="VARCHAR" size="200"/>
+      <lstAttributes name="Depto_ID" nullable="true" size="" foreignKey="true"/>
+    </lstMClass>
+    <lstMClass name="Curso" path="Colegio">
+      <lstAttributes name="Curso_ID" primaryKey="true" size=""/>
+      <lstAttributes name="Prof_ID" nullable="true" foreignKey="true"/>
+    </lstMClass>
+    <lstMClass name="Depto" path="Colegio">
+      <lstAttributes name="Depto_ID" primaryKey="true" size=""/>
+    </lstMClass>
+  </lstPackages>
+</abstract:ModelFactory>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sql_abstracts:ModelFactory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sql_abstracts="http://sql_abstracts">
+  <lstSchema name="Colegio">
+    <lstTables name="Profesor">
+      <lstColumns name="Nombre" type= nullable="true"/>
+      <lstPrimaryKeys name="Prof_ID" type="Numeric" table="Profesor"/>
+      <lstForeignKeys name="Depto_ID" referPrimaryKey="//@lstSchema.0/@lstTables.2/@lstPrimaryKeys.0" nullable="true" type="Numeric"/>
+    </lstTables>
+    <lstTables name="Curso">
+      <lstPrimaryKeys name="Curso_ID" type="Numeric" table="Curso"/>
+    </lstTables>
+    <lstTables name="Depto">
+      <lstPrimaryKeys name="Depto_ID" type="Numeric" lstReferForeignKeys="//@lstSchema.0/@lstTables.0/@lstForeignKeys.0" table="Depto"/>
+    </lstTables>
+    <lstTables name="ProfesorCurso">
+      <lstPrimaryKeys name="ProfesorCurso_ID" type="NUMBER" table="ProfesorCurso"/>
+      <lstForeignKeys name="Curso_ID" referPrimaryKey="//@lstSchema.0/@lstTables.1/@lstPrimaryKeys.0" nullable="true" type="Numeric"/>
+      <lstForeignKeys name="Prof_ID" referPrimaryKey="//@lstSchema.0/@lstTables.0/@lstPrimaryKeys.0" nullable="true" type="Numeric"/>
+    </lstTables>
+  </lstSchema>
+</sql_abstracts:ModelFactory>

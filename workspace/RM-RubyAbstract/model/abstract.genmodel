@@ -5,6 +5,14 @@
     copyrightFields="false">
   <foreignModel>abstract.emf</foreignModel>
   <genPackages prefix="Abstracts" disposableProviderFactory="true" ecorePackage="abstract.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstract.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="abstract.ecore#//Type/NUMERIC"/>
+      <genEnumLiterals ecoreEnumLiteral="abstract.ecore#//Type/VARCHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="abstract.ecore#//Type/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="abstract.ecore#//Type/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="abstract.ecore#//Type/DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="abstract.ecore#//Type/YEAR"/>
+    </genEnums>
     <genClasses ecoreClass="abstract.ecore#//ModelFactory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//ModelFactory/nombre"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//ModelFactory/ruta"/>
@@ -63,6 +71,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/primaryKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/nullable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/size"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstract.ecore#//MAttribute/foreignKey"/>
     </genClasses>
     <genClasses ecoreClass="abstract.ecore#//MFunction">

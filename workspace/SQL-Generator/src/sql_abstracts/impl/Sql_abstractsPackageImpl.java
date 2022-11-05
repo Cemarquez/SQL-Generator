@@ -4,6 +4,7 @@ package sql_abstracts.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -18,6 +19,7 @@ import sql_abstracts.Schema;
 import sql_abstracts.Sql_abstractsFactory;
 import sql_abstracts.Sql_abstractsPackage;
 import sql_abstracts.Table;
+import sql_abstracts.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +76,13 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	 * @generated
 	 */
 	private EClass foreignKeyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -263,7 +272,7 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	 */
 	@Override
 	public EAttribute getColumn_Nullable() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -273,7 +282,17 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	 */
 	@Override
 	public EAttribute getColumn_Comments() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getColumn_Size() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -352,6 +371,26 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 	 * @generated
 	 */
 	@Override
+	public EAttribute getForeignKey_Size() {
+		return (EAttribute)foreignKeyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getType() {
+		return typeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Sql_abstractsFactory getSql_abstractsFactory() {
 		return (Sql_abstractsFactory)getEFactoryInstance();
 	}
@@ -391,6 +430,7 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 
 		columnEClass = createEClass(COLUMN);
 		createEAttribute(columnEClass, COLUMN__TYPE);
+		createEAttribute(columnEClass, COLUMN__SIZE);
 		createEAttribute(columnEClass, COLUMN__NULLABLE);
 		createEAttribute(columnEClass, COLUMN__COMMENTS);
 
@@ -402,6 +442,10 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 		createEReference(foreignKeyEClass, FOREIGN_KEY__REFER_PRIMARY_KEY);
 		createEAttribute(foreignKeyEClass, FOREIGN_KEY__NULLABLE);
 		createEAttribute(foreignKeyEClass, FOREIGN_KEY__TYPE);
+		createEAttribute(foreignKeyEClass, FOREIGN_KEY__SIZE);
+
+		// Create enums
+		typeEEnum = createEEnum(TYPE);
 	}
 
 	/**
@@ -454,7 +498,8 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 		initEReference(getTable_LstForeignKeys(), this.getForeignKey(), null, "lstForeignKeys", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColumn_Type(), ecorePackage.getEString(), "type", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Type(), this.getType(), "type", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Size(), ecorePackage.getEString(), "size", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -465,7 +510,17 @@ public class Sql_abstractsPackageImpl extends EPackageImpl implements Sql_abstra
 		initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getForeignKey_ReferPrimaryKey(), this.getPrimaryKey(), null, "referPrimaryKey", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getForeignKey_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getForeignKey_Type(), ecorePackage.getEString(), "type", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForeignKey_Type(), this.getType(), "type", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForeignKey_Size(), ecorePackage.getEString(), "size", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(typeEEnum, Type.class, "Type");
+		addEEnumLiteral(typeEEnum, Type.NUMERIC);
+		addEEnumLiteral(typeEEnum, Type.VARCHAR);
+		addEEnumLiteral(typeEEnum, Type.BOOLEAN);
+		addEEnumLiteral(typeEEnum, Type.INTEGER);
+		addEEnumLiteral(typeEEnum, Type.DATE);
+		addEEnumLiteral(typeEEnum, Type.YEAR);
 
 		// Create resource
 		createResource(eNS_URI);

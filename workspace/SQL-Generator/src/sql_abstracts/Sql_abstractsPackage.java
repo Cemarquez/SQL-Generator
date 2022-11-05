@@ -4,6 +4,7 @@ package sql_abstracts;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -233,13 +234,22 @@ public interface Sql_abstractsPackage extends EPackage {
 	int COLUMN__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__SIZE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__NULLABLE = MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int COLUMN__NULLABLE = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Comments</b></em>' attribute.
@@ -248,7 +258,7 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__COMMENTS = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int COLUMN__COMMENTS = MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -257,7 +267,7 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int COLUMN_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link sql_abstracts.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
@@ -286,6 +296,15 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMARY_KEY__TYPE = COLUMN__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMARY_KEY__SIZE = COLUMN__SIZE;
 
 	/**
 	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
@@ -379,13 +398,33 @@ public interface Sql_abstractsPackage extends EPackage {
 	int FOREIGN_KEY__TYPE = MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOREIGN_KEY__SIZE = MODEL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Foreign Key</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOREIGN_KEY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int FOREIGN_KEY_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+
+	/**
+	 * The meta object id for the '{@link sql_abstracts.Type <em>Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sql_abstracts.Type
+	 * @see sql_abstracts.impl.Sql_abstractsPackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 7;
 
 
 	/**
@@ -538,6 +577,17 @@ public interface Sql_abstractsPackage extends EPackage {
 	EAttribute getColumn_Comments();
 
 	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.Column#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see sql_abstracts.Column#getSize()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Size();
+
+	/**
 	 * Returns the meta object for class '{@link sql_abstracts.PrimaryKey <em>Primary Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -611,6 +661,27 @@ public interface Sql_abstractsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getForeignKey_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sql_abstracts.ForeignKey#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see sql_abstracts.ForeignKey#getSize()
+	 * @see #getForeignKey()
+	 * @generated
+	 */
+	EAttribute getForeignKey_Size();
+
+	/**
+	 * Returns the meta object for enum '{@link sql_abstracts.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Type</em>'.
+	 * @see sql_abstracts.Type
+	 * @generated
+	 */
+	EEnum getType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -757,6 +828,14 @@ public interface Sql_abstractsPackage extends EPackage {
 		EAttribute COLUMN__COMMENTS = eINSTANCE.getColumn_Comments();
 
 		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__SIZE = eINSTANCE.getColumn_Size();
+
+		/**
 		 * The meta object literal for the '{@link sql_abstracts.impl.PrimaryKeyImpl <em>Primary Key</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -815,6 +894,24 @@ public interface Sql_abstractsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FOREIGN_KEY__TYPE = eINSTANCE.getForeignKey_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOREIGN_KEY__SIZE = eINSTANCE.getForeignKey_Size();
+
+		/**
+		 * The meta object literal for the '{@link sql_abstracts.Type <em>Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sql_abstracts.Type
+		 * @see sql_abstracts.impl.Sql_abstractsPackageImpl#getType()
+		 * @generated
+		 */
+		EEnum TYPE = eINSTANCE.getType();
 
 	}
 

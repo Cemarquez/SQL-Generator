@@ -5,6 +5,7 @@ package concrete.impl;
 import concrete.ConcretePackage;
 import concrete.MAttribute;
 
+import concrete.Type;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link concrete.impl.MAttributeImpl#isPrimaryKey <em>Primary Key</em>}</li>
  *   <li>{@link concrete.impl.MAttributeImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link concrete.impl.MAttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link concrete.impl.MAttributeImpl#getSize <em>Size</em>}</li>
  *   <li>{@link concrete.impl.MAttributeImpl#isForeignKey <em>Foreign Key</em>}</li>
  * </ul>
  *
@@ -182,7 +184,7 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TYPE_EDEFAULT = null;
+	protected static final Type TYPE_EDEFAULT = Type.NUMERIC;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -192,7 +194,27 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @generated
 	 * @ordered
 	 */
-	protected String type = TYPE_EDEFAULT;
+	protected Type type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SIZE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected String size = SIZE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isForeignKey() <em>Foreign Key</em>}' attribute.
@@ -400,7 +422,7 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @generated
 	 */
 	@Override
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -410,11 +432,34 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 	 * @generated
 	 */
 	@Override
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
+	public void setType(Type newType) {
+		Type oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ConcretePackage.MATTRIBUTE__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getSize() {
+		return size;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSize(String newSize) {
+		String oldSize = size;
+		size = newSize;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ConcretePackage.MATTRIBUTE__SIZE, oldSize, size));
 	}
 
 	/**
@@ -464,6 +509,8 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				return isNullable();
 			case ConcretePackage.MATTRIBUTE__TYPE:
 				return getType();
+			case ConcretePackage.MATTRIBUTE__SIZE:
+				return getSize();
 			case ConcretePackage.MATTRIBUTE__FOREIGN_KEY:
 				return isForeignKey();
 		}
@@ -500,7 +547,10 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 				setNullable((Boolean)newValue);
 				return;
 			case ConcretePackage.MATTRIBUTE__TYPE:
-				setType((String)newValue);
+				setType((Type)newValue);
+				return;
+			case ConcretePackage.MATTRIBUTE__SIZE:
+				setSize((String)newValue);
 				return;
 			case ConcretePackage.MATTRIBUTE__FOREIGN_KEY:
 				setForeignKey((Boolean)newValue);
@@ -541,6 +591,9 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 			case ConcretePackage.MATTRIBUTE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case ConcretePackage.MATTRIBUTE__SIZE:
+				setSize(SIZE_EDEFAULT);
+				return;
 			case ConcretePackage.MATTRIBUTE__FOREIGN_KEY:
 				setForeignKey(FOREIGN_KEY_EDEFAULT);
 				return;
@@ -571,7 +624,9 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 			case ConcretePackage.MATTRIBUTE__NULLABLE:
 				return nullable != NULLABLE_EDEFAULT;
 			case ConcretePackage.MATTRIBUTE__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != TYPE_EDEFAULT;
+			case ConcretePackage.MATTRIBUTE__SIZE:
+				return SIZE_EDEFAULT == null ? size != null : !SIZE_EDEFAULT.equals(size);
 			case ConcretePackage.MATTRIBUTE__FOREIGN_KEY:
 				return foreignKey != FOREIGN_KEY_EDEFAULT;
 		}
@@ -604,6 +659,8 @@ public class MAttributeImpl extends EObjectImpl implements MAttribute {
 		result.append(nullable);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", size: ");
+		result.append(size);
 		result.append(", foreignKey: ");
 		result.append(foreignKey);
 		result.append(')');
